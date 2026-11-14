@@ -1,0 +1,224 @@
+consistency  D:\ZenVoyager\Bawarchi\dist\pricing.html
+
+1440x900  6 screens  1 FAIL  13 WARN
+  FAIL text-contrast   section#compare > div.wrap > div.section-head > p  "What each plan includes, row by row."
+       a caption, label or muted line in #817c76 on #1f1a15 reads 4.19:1 (needs 4.5:1)  [1440-06-text-contrast.jpg]
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  WARN flush           section#compare > div.mo-lc__stage > div.mo-lc__cover
+       its first line sits 24px under the top edge of section#compare, where the ground changes  [1440-07-flush.jpg]
+       fix: give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)
+  WARN scroll-linked   section#compare > div.mo-lc__stage > div.mo-lc__cover
+       moves with the scroll and changes back when the scroll goes back (clip) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1440-08-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#compare  "Compare the three plans What each plan i"
+       animates in when scrolled into view (fades in from 0.0) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1440-09-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN text-only       section#plans  "Pricing"
+       the section is only text: no picture, icon, mock or effect in it  [1440-04-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  WARN card-visual     section#plans > div.wrap > div.grid  "Starter For smaller restaurants ₹1,299 /"
+       3 cards hold only text: no picture, icon, UI fragment or effect in any of them  [1440-05-card-visual.jpg]
+       fix: give the cards a visual: an inset panel with a UI fragment, a photograph or real icons
+  WARN copy-headings   div.grid > div.faq.span-6 > div.faq__item:nth-of-type(5) > h3  "How do I start?"
+       "How do I start?" names no product, part, place or section (the one brand line a page may have)  [1440-12-copy-headings.jpg]
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  WARN copy-actions    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       2 labels for one target /how-it-works.html#signup: "Sign up your restaurant", "Choose Growth"  [1440-01-copy-actions.jpg]
+       fix: few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close
+  WARN section-gaps    section#plans / section#compare
+       83px between these sections, -54% against the median 181px of gaps at a change of ground  [1440-10-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#plans / section#compare
+       uneven space at the edge of a band: 59px outside its edge, 24px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1440-11-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 2 more like it: "Sign up your restaurant", "Choose Growth")  [1440-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN copy-length     section#questions  "Questions about pricing"
+       2 sections over 90 words a screen outside the UI mocks ("Questions about pricing" 128, "Pricing" 114); 87 words a screen across the page (347 words in 4 screens): a tech page says it in about 80 or fewer  [1440-13-copy-length.jpg]
+       fix: cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences
+  WARN action-repeat   header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "sign up your restaurant"
+       "sign up your restaurant" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1440-14-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+  WARN assumed         div.hero-text.grid > div.hero__text.span-5:nth-of-type(1) > p.hero__lead > span:nth-of-type(1)  "₹1,299"
+       4 facts marked as assumed, for the report: "₹1,299", "₹2,799", "₹1,299", "₹2,799"  [1440-03-assumed.jpg]
+       fix: list each assumed fact in the report for the client to confirm, or take it from the brief
+
+1024x768  7 screens  0 FAIL  8 WARN
+  WARN flush           section#compare > div.mo-lc__stage > div.mo-lc__cover
+       its first line sits 24px under the top edge of section#compare, where the ground changes  [1024-03-flush.jpg]
+       fix: give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)
+  WARN scroll-reveal   section#compare  "Compare the three plans What each plan i"
+       animates in when scrolled into view (fades in from 0.0) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1024-07-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN text-only       section#plans  "Pricing"
+       the section is only text: no picture, icon, mock or effect in it  [1024-02-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  WARN card-visual     section#plans > div.wrap > div.grid  "Starter For smaller restaurants ₹1,299 /"
+       3 cards hold only text: no picture, icon, UI fragment or effect in any of them  [1024-04-card-visual.jpg]
+       fix: give the cards a visual: an inset panel with a UI fragment, a photograph or real icons
+  WARN section-gaps    section#plans / section#compare
+       96px between these sections, -47% against the median 182px of gaps at a change of ground  [1024-05-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#plans / section#compare
+       uneven space at the edge of a band: 72px outside its edge, 24px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1024-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 2 more like it: "Sign up your restaurant", "Choose Growth")  [1024-01-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN action-repeat   header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "sign up your restaurant"
+       "sign up your restaurant" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1024-08-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+
+820x1180  7 screens  2 FAIL  8 WARN
+  FAIL text-only       section#plans  "Pricing"
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [820-05-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#questions  "Questions about pricing"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [820-10-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (772px), while its first starts on the other edge  [820-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-reveal   section#compare  "Compare the three plans What each plan i"
+       animates in when scrolled into view (fades in from 0.0) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [820-08-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN card-visual     section#plans > div.wrap > div.grid  "Starter For smaller restaurants ₹1,299 /"
+       3 cards hold only text: no picture, icon, UI fragment or effect in any of them  [820-03-card-visual.jpg]
+       fix: give the cards a visual: an inset panel with a UI fragment, a photograph or real icons
+  WARN section-gaps    main#top > section.hero.hero--split / section#plans
+       182px between these sections, -47% against the median 346px  [820-04-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#plans / section#compare
+       490px between these sections, +42% against the median 346px of gaps at a change of ground  [820-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#plans / section#compare
+       uneven space at the edge of a band: 466px outside its edge, 24px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [820-07-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#compare / section#questions
+       uneven space at the edge of a band: 118px outside its edge, 228px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [820-09-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [820-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+
+768x1024  7 screens  5 FAIL  5 WARN
+  FAIL text-only       section#plans  "Pricing"
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [768-04-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#questions  "Questions about pricing"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [768-07-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (720px), while its first starts on the other edge  [768-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-reveal   section#compare  "Compare the three plans What each plan i"
+       animates in when scrolled into view (fades in from 0.0) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [768-06-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN card-visual     section#plans > div.wrap > div.grid  "Starter For smaller restaurants ₹1,299 /"
+       3 cards hold only text: no picture, icon, UI fragment or effect in any of them  [768-03-card-visual.jpg]
+       fix: give the cards a visual: an inset panel with a UI fragment, a photograph or real icons
+  WARN section-gaps    section#plans / section#compare
+       uneven space at the edge of a band: 157px outside its edge, 24px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [768-05-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 2 more like it: "Sign up your restaurant", "Choose Growth")  [768-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  FAIL section-height  section#compare  "Compare the three plansWhat each plan in"
+       the scene's section is 1043px tall (1 screens), 19px over one screen (1024px): every section after the hero is one screen or two, 2px either way; a pinned scene is (hold + 1) screens tall, so write data-big-scene-opts='{"hold": 1}' (two screens) and keep --h on the section (SR-2)  [768-rhythm-01-section-height.jpg]
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height  section#questions  "Questions about pricingSomething not ans"
+       the section starts at 4115px, 19px below the screen grid (4 x 1024px): sections start on whole screens (SR-2)  [768-rhythm-02-section-height.jpg]
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-height  footer#contact  "Put your menu on every tablePlans from ₹"
+       the section starts at 5139px, 19px below the screen grid (5 x 1024px): sections start on whole screens (SR-2)  [768-rhythm-03-section-height.jpg]
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+
+390x844  10 screens  0 FAIL  10 WARN
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge  [390-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN text-only       section#plans  "Pricing"
+       the section is only text: no picture, icon, mock or effect in it  [390-04-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  WARN card-visual     section#plans > div.wrap > div.grid  "Starter For smaller restaurants ₹1,299 /"
+       3 cards hold only text: no picture, icon, UI fragment or effect in any of them  [390-02-card-visual.jpg]
+       fix: give the cards a visual: an inset panel with a UI fragment, a photograph or real icons
+  WARN section-gaps    main#top > section.hero.hero--split / section#plans
+       118px between these sections, -44% against the median 210px  [390-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#plans / section#compare
+       275px between these sections, +31% against the median 210px of gaps at a change of ground  [390-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#plans / section#compare
+       uneven space at the edge of a band: 181px outside its edge, 94px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [390-07-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    div.wrap > div.grid > article.card.card--plan:nth-of-type(2) > a.btn.btn--primary  "Choose Growth"
+       its label sits 18px off-centre (86px of room at the left, 104px at the right)  [390-05-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN row-lines       div.wrap > div.compare > div:nth-of-type(2) > div.compare__row:nth-of-type(3)  "Live order tracking for guests–IncludedI"
+       a row of 3 items: its first item starts at 158px, the container's left line at 24px; its items are 18/21/21px tall, not one height (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)  [390-rhythm-01-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+  WARN row-lines       div.wrap > div.compare > div:nth-of-type(3) > div.compare__row:nth-of-type(3)  "QR code managementIncludedIncludedInclud"
+       a row of 3 items: its first item starts at 158px, the container's left line at 24px (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)  [390-rhythm-02-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+  WARN row-lines       div.wrap > div.compare > div:nth-of-type(4) > div.compare__row:nth-of-type(2)  "Inventory management–IncludedIncluded"
+       a row of 3 items: its first item starts at 158px, the container's left line at 24px; its items are 18/21/21px tall, not one height (2px either way) (it is in a scroll scene: told as a WARN) (and 8 more like it: "Coupons and favourites–I", "Guest QR orderingInclude", "Online paymentsIncludedI") (SR-7)  [390-rhythm-03-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+
+first screen at 1280, 1152, 896  0 FAIL  0 WARN
+
+the page at 320x640, walked for what runs past the screen's edge  0 FAIL
+
+checks
+  PASS assets                 PASS shader-lint            PASS gl-fallback            
+  PASS empty-visual           PASS hero-fill              WARN flush                  
+  PASS placeholder            PASS sample-label           PASS caption                
+  PASS credit-wall            WARN nav                    PASS nav-covers             
+  PASS spill                  PASS off-viewport           PASS fold-card              
+  PASS hover-spill            PASS overlap-text           PASS collide                
+  PASS tap-size               PASS row-gap                PASS cut-text               
+  PASS fold-cut               PASS marquee                WARN scroll-linked          
+  WARN scroll-reveal          PASS pinned                 PASS loop-pause             
+  PASS reduced-motion         PASS hidden-content         PASS webgl                  
+  PASS no-visual              FAIL text-only              WARN card-visual            
+  PASS hidden-visual          PASS card-family            PASS card-layout            
+  PASS nesting                PASS effect-repeat          PASS ui-fit                 
+  PASS ui-centre              PASS dark-ground            PASS button-styles          
+  PASS button-shape           PASS same-action            PASS button-picture         
+  PASS cta                    PASS pricing-tiers          PASS copy-headline          
+  PASS copy-fact              WARN copy-headings          PASS copy-buttons           
+  WARN copy-actions           PASS heading-scale          PASS stagger                
+  PASS top-stagger            PASS off-grid               PASS col-edge               
+  PASS right-edge             PASS centre-axis            PASS tilt                   
+  PASS contrast               FAIL text-contrast          PASS body-size              
+  PASS busy-ground            WARN section-gaps           PASS proximity              
+  PASS hole                   PASS links                  PASS forms                  
+  PASS photo-upscale          PASS photo-set              PASS photo-credit           
+  PASS nav-family             PASS nav-labels             PASS link-styles            
+  PASS heading-align          WARN label-centre           PASS fake-button            
+  PASS stranded-action        PASS orphan                 PASS unit-break             
+  PASS tab-wrap               PASS effects-fit            PASS fade-cut               
+  PASS photo-weight           WARN copy-length            PASS nav-current            
+  PASS progress-bar           PASS photo-repeat           PASS button-contrast        
+  PASS photo-print            PASS grounds                PASS split-align            
+  PASS fact-agree             PASS fold-action            PASS action-count           
+  PASS one-screen             PASS hover                  PASS hover-move             
+  PASS product-shown          PASS same-object            PASS font-load              
+  PASS visual-caption         PASS visual-empty           PASS effect-kind            
+  PASS hero-enter             PASS moment-none            PASS street-number          
+  PASS postcode               PASS coordinates            PASS company-number         
+  PASS phone-number           PASS hero-screen            FAIL section-height         
+  PASS section-air            PASS one-section            PASS one-heading            
+  PASS container-edges        WARN row-lines              PASS split-pair             
+  PASS motion-layer           PASS count-text             PASS loop-cycle             
+  PASS section-tile           PASS empty-area             PASS a11y-name              
+  PASS img-alt                PASS field-label            PASS heading-order          
+  PASS tabindex               PASS focus-ring             PASS focus-visible          
+  PASS focus-hidden           PASS skip-link              PASS menu-toggle            
+  PASS lang                   PASS page-meta              PASS share-meta             
+  WARN action-repeat          PASS map-link               PASS open-now               
+  WARN assumed                PASS run-on                 PASS form-fields            
+  PASS form-send              
+
+total  8 FAIL  44 WARN  (crops and report.json in D:\ZenVoyager\Bawarchi\dist\.taste-skill\consistency-pricing)

@@ -78,7 +78,7 @@ export function Nav({ current, actionHref = SIGNUP_HREF }) {
 // footer.closing: row 1 the dealt close (close-word), row 2 the dark footer's directory (footer-dark).
 export function Closing({ heading = 'Put your menu on every table', line, actionHref = SIGNUP_HREF }) {
   return (
-    <footer className="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+    <footer className="footer closing footer--dark ground-inverse g2m" id="contact" aria-labelledby="close-h">
       <div className="wrap">
         <div className="closing__cta close--word">
           <div className="section-head--split">
@@ -122,7 +122,7 @@ export function Closing({ heading = 'Put your menu on every table', line, action
               <h3>Company</h3>
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="mailto:hello@bhawarchi.example">Email us</a></li>
+                <li><a href="mailto:hello@bawarchi.example">Email us</a></li>
               </ul>
             </div>
           </div>

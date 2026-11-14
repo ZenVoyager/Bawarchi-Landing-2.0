@@ -1,5 +1,5 @@
-/* Page CSS for the Bawarchi site. The design system (grid, type, buttons, cards, sections) is the
-   kit in /assets; this file holds only what sits inside a visual (Bawarchi's real product screens,
+/* Page CSS for the Bhawarchi site. The design system (grid, type, buttons, cards, sections) is the
+   kit in /assets; this file holds only what sits inside a visual (Bhawarchi's real product screens,
    the phone they sit in and the pricing page's invoice) and one --p-h per card group, as the kit allows. */
 
 #root { display: contents; }

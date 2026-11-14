@@ -32,8 +32,8 @@ export default function Pricing() {
               <a className="btn btn--secondary" href="#compare">Compare the plans</a>
             </div>
           </div>
-          <div className="hero__media hero__media--ui span-6 start-7" role="img" aria-label="Bawarchi's dashboard: today's orders and revenue, the daily goal, stock running low, six months of revenue and the active orders">
-            <Screen name="dashboard-full" eager sizes="(max-width: 1023px) 92vw, 640px" />
+          <div className="hero__media hero__media--ui span-6 start-7">
+            <Screen alt="Bawarchi's dashboard: today's orders and revenue, the daily goal, stock running low, six months of revenue and the active orders" name="dashboard-full" eager sizes="(max-width: 1023px) 92vw, 640px" />
           </div>
         </div></div>
       </section>

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "shots": "node scripts/shots.mjs"
+    "shots": "node scripts/shots.mjs",
+    "check": "node .agents/skills/design-taste-frontend/scripts/consistency.mjs dist/index.html --root dist --widths 1440,1024,820,768,390 --rhythm-widths 1440,820,768,390 --profile .taste-skill/chrome-check --page software --category \"QR ordering software for restaurants\" --primary \"Sign up your restaurant\"",
+    "gate": "node .agents/skills/design-taste-frontend/scripts/gate.mjs dist/index.html"
   },
   "dependencies": {
     "react": "18.3.1",

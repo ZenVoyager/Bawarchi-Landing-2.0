@@ -1,0 +1,146 @@
+consistency  D:\ZenVoyager\Bawarchi\dist\index.html
+
+1440x900  10 screens  0 FAIL  6 WARN
+  WARN scroll-linked   section#why > div.wrap > p.mo-wh__text > span.mo-w:nth-of-type(6)  "pays"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 27 more parts of this section change with the scroll too (span.mo-w:nth-of-type(7), span.mo-w:nth-of-type(8), span.mo-w:nth-of-type(9), span.mo-w:nth-of-type(10), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1440-03-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#why > div.wrap > p.mo-wh__text  "A guest scans, orders and pays at the ta"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1440-04-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN copy-headings   h2#tables-h  "Table management on one floor view"
+       "Table management on one floor view" names no product, part, place or section (the one brand line a page may have)  [1440-05-copy-headings.jpg]
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [1440-01-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN action-repeat   header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "sign up your restaurant"
+       "sign up your restaurant" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1440-06-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+  WARN assumed         div.hero-text > div.hero__c:nth-of-type(1) > a.pill > span:nth-of-type(1)  "Plans from ₹1,299 a month"
+       1 fact marked as assumed, for the report: "Plans from ₹1,299 a month"  [1440-02-assumed.jpg]
+       fix: list each assumed fact in the report for the client to confirm, or take it from the brief
+
+1024x768  10 screens  0 FAIL  4 WARN
+  WARN scroll-linked   section#why > div.wrap > p.mo-wh__text > span.mo-w:nth-of-type(5)  "and"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 27 more parts of this section change with the scroll too (span.mo-w:nth-of-type(6), span.mo-w:nth-of-type(7), span.mo-w:nth-of-type(8), span.mo-w:nth-of-type(9), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1024-02-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#why > div.wrap > p.mo-wh__text  "A guest scans, orders and pays at the ta"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1024-03-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [1024-01-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN action-repeat   header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "sign up your restaurant"
+       "sign up your restaurant" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1024-04-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+
+820x1180  11 screens  0 FAIL  6 WARN
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (772px), while its first starts on the other edge  [820-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-linked   section#why > div.wrap > p.mo-wh__text > span.mo-w:nth-of-type(9)  "table."
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 22 more parts of this section change with the scroll too (span.mo-w:nth-of-type(10), span.mo-w:nth-of-type(11), span.mo-w:nth-of-type(12), span.mo-w:nth-of-type(13), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [820-04-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#why > div.wrap > p.mo-wh__text  "A guest scans, orders and pays at the ta"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [820-05-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN section-gaps    section#tables / section#steps
+       uneven space at the edge of a band: 118px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [820-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN hole            section#features  "What Bawarchi runs for you. Menus, stock"
+       an empty hole 770x406px inside the section (34% of the screen's height), with content above and below it  [820-03-hole.jpg]
+       fix: close the empty space: move the content together, or give the space the visual it lacks
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [820-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+
+768x1024  11 screens  0 FAIL  4 WARN
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (720px), while its first starts on the other edge  [768-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-linked   section#why > div.wrap > p.mo-wh__text > span.mo-w:nth-of-type(8)  "the"
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 23 more parts of this section change with the scroll too (span.mo-w:nth-of-type(9), span.mo-w:nth-of-type(10), span.mo-w:nth-of-type(11), span.mo-w:nth-of-type(12), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [768-03-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#why > div.wrap > p.mo-wh__text  "A guest scans, orders and pays at the ta"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [768-04-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [768-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+
+390x844  12 screens  1 FAIL  5 WARN
+  FAIL empty-visual    div.at-rise > div.ui.bw-phone > div.bw-phone__screen > img.shot__img  "ph-home-600.webp"
+       the picture shows nothing here: with it hidden the screen looks the same (the picture is there but invisible: faded out, clipped or covered), so the visitor sees only the ground behind it  [390-03-empty-visual.jpg]
+       fix: make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge  [390-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN scroll-linked   section#why > div.wrap > p.mo-wh__text > span.mo-w:nth-of-type(9)  "table."
+       its colour changes with the scroll and changes back when the scroll goes back (colour), with 1 part inside it, eased after the scroll stops; 16 more parts of this section change with the scroll too (span.mo-w:nth-of-type(10), span.mo-w:nth-of-type(11), span.mo-w:nth-of-type(12), span.mo-w:nth-of-type(14), ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [390-05-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#why > div.wrap > p.mo-wh__text  "A guest scans, orders and pays at the ta"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [390-06-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN section-gaps    main#top > section.hero.hero--centred / section#orders
+       118px between these sections, -43% against the median 206px  [390-02-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN fade-cut        div.wrap > div.grid > article.card.card--row:nth-of-type(2) > p  "Revenue, orders and your best-selling di"
+       a line of article.card.card--row:nth-of-type(2) fades out under its edge ("Revenue, orders and yo"): drawn at a fraction of #3b3631 on #faf6ef, half-erased  [390-04-fade-cut.jpg]
+       fix: fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased
+
+first screen at 1280, 1152, 896  0 FAIL  0 WARN
+
+the page at 320x640, walked for what runs past the screen's edge  0 FAIL
+
+checks
+  PASS assets                 PASS shader-lint            PASS gl-fallback            
+  FAIL empty-visual           PASS hero-fill              PASS flush                  
+  PASS placeholder            PASS sample-label           PASS caption                
+  PASS credit-wall            WARN nav                    PASS nav-covers             
+  PASS spill                  PASS off-viewport           PASS fold-card              
+  PASS hover-spill            PASS overlap-text           PASS collide                
+  PASS tap-size               PASS row-gap                PASS cut-text               
+  PASS fold-cut               PASS marquee                WARN scroll-linked          
+  WARN scroll-reveal          PASS pinned                 PASS loop-pause             
+  PASS reduced-motion         PASS hidden-content         PASS webgl                  
+  PASS no-visual              PASS text-only              PASS card-visual            
+  PASS hidden-visual          PASS card-family            PASS card-layout            
+  PASS nesting                PASS effect-repeat          PASS ui-fit                 
+  PASS ui-centre              PASS dark-ground            PASS button-styles          
+  PASS button-shape           PASS same-action            PASS button-picture         
+  PASS cta                    PASS pricing-tiers          PASS copy-headline          
+  PASS copy-fact              WARN copy-headings          PASS copy-buttons           
+  PASS copy-actions           PASS heading-scale          PASS stagger                
+  PASS top-stagger            PASS off-grid               PASS col-edge               
+  PASS right-edge             PASS centre-axis            PASS tilt                   
+  PASS contrast               PASS text-contrast          PASS body-size              
+  PASS busy-ground            WARN section-gaps           PASS proximity              
+  WARN hole                   PASS links                  PASS forms                  
+  PASS photo-upscale          PASS photo-set              PASS photo-credit           
+  PASS nav-family             PASS nav-labels             PASS link-styles            
+  PASS heading-align          WARN label-centre           PASS fake-button            
+  PASS stranded-action        PASS orphan                 PASS unit-break             
+  PASS tab-wrap               PASS effects-fit            WARN fade-cut               
+  PASS photo-weight           PASS copy-length            PASS nav-current            
+  PASS progress-bar           PASS photo-repeat           PASS button-contrast        
+  PASS photo-print            PASS grounds                PASS split-align            
+  PASS fact-agree             PASS fold-action            PASS action-count           
+  PASS one-screen             PASS hover                  PASS hover-move             
+  PASS product-shown          PASS same-object            PASS font-load              
+  PASS visual-caption         PASS visual-empty           PASS effect-kind            
+  PASS hero-enter             PASS moment-none            PASS street-number          
+  PASS postcode               PASS coordinates            PASS company-number         
+  PASS phone-number           PASS hero-screen            PASS section-height         
+  PASS section-air            PASS one-section            PASS one-heading            
+  PASS container-edges        PASS row-lines              PASS split-pair             
+  PASS motion-layer           PASS count-text             PASS loop-cycle             
+  PASS section-tile           PASS empty-area             PASS a11y-name              
+  PASS img-alt                PASS field-label            PASS heading-order          
+  PASS tabindex               PASS focus-ring             PASS focus-visible          
+  PASS focus-hidden           PASS skip-link              PASS menu-toggle            
+  PASS lang                   PASS page-meta              PASS share-meta             
+  WARN action-repeat          PASS map-link               PASS open-now               
+  WARN assumed                PASS run-on                 PASS form-fields            
+  PASS form-send              
+
+total  1 FAIL  25 WARN  (crops and report.json in D:\ZenVoyager\Bawarchi\dist\.taste-skill\consistency)

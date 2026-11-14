@@ -1,5 +1,6 @@
 import { Page } from '../components/Shell.jsx';
 import { MAIN_ACTION, PLANS, PRICES } from '../data/site.js';
+import { cloneElement } from 'react';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
 
 /*
@@ -34,26 +35,26 @@ export default function HowItWorks() {
               <a className="btn btn--secondary" href="#steps">See the six steps</a>
             </div>
           </div>
-          <div className="hero__art span-6 start-7" role="img" aria-label="Bawarchi's order management screen with each table's order, and the guest's phone showing their order being prepared, 5 minutes left">
+          <div className="hero__art span-6 start-7">
             <div className="ly-piece ly-piece--main">
-              <Screen name="orders" eager sizes="(max-width: 1023px) 92vw, 760px" />
+              <Screen alt="Bawarchi's order management screen with each table's order, and the guest's phone showing their order being prepared, 5 minutes left" name="orders" eager sizes="(max-width: 1023px) 92vw, 760px" />
             </div>
             <div className="ly-piece ly-piece--note ly-piece--phone">
-              <PhoneShot name="ph-preparing" className="bw-phone--fluid" sizes="200px" />
+              <PhoneShot name="ph-preparing" className="bw-phone--fluid" sizes="200px" alt="The guest's phone: their order being prepared, 5 minutes left" />
             </div>
           </div>
         </div></div>
       </section>
 
       {/* steps: six, in two rows of three (two screens) */}
-      <section className="section g2" id="steps" style={{ '--hm': 2 }} aria-labelledby="steps-h">
+      <section className="section g2 steps--six" id="steps" style={{ '--hm': 2 }} aria-labelledby="steps-h">
         <div className="wrap">
           <div className="group">
             <div className="section-head">
               <h2 id="steps-h">From table QR to paid bill in 6 steps</h2>
             </div>
-            <div className="panel steps__phone" role="img" aria-label="The guest's phone: the main menu, where the six steps start">
-              <div className="stage stage--fade-b"><div className="at-rise" style={{ '--ax': 'max(16px, 50% - 135px)', '--ay': '24px', '--ay-sm': '24px' }}><PhoneShot name="ph-menu" /></div></div>
+            <div className="panel steps__phone">
+              <div className="stage stage--fade-b"><div className="at-rise" style={{ '--ax': 'max(16px, 50% - 135px)', '--ay': '24px', '--ay-sm': '24px' }}><PhoneShot alt="The guest's phone: the main menu, where the six steps start" name="ph-menu" /></div></div>
             </div>
             <div className="grid">
               {STEPS.slice(0, 3).map((s, i) => <Step key={s.t} n={i + 1} {...s} />)}
@@ -118,8 +119,8 @@ function Step({ n, t, p, v, fit = 270, label }) {
       <span className="step-num">{n}</span>
       <h3>{t}</h3>
       <p>{p}</p>
-      <div className="panel" role="img" aria-label={label}>
-        <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': fit + 'px', '--ax': `max(24px, 50% - ${fit / 2}px)`, '--ay': '28px', '--ay-sm': '16px' }}>{v}</div></div>
+      <div className="panel">
+        <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': fit + 'px', '--ax': `max(24px, 50% - ${fit / 2}px)`, '--ay': '28px', '--ay-sm': '16px' }}>{cloneElement(v, { alt: label })}</div></div>
       </div>
     </article>
   );

@@ -7,7 +7,7 @@ export const MAIN_ACTION = 'Sign up your restaurant';
 export const SIGNUP_HREF = '/how-it-works.html#signup';
 
 // Stand-in contact address until the real one exists (the form posts here as a mailto).
-export const CONTACT_MAILTO = 'mailto:hello@bhawarchi.example';
+export const CONTACT_MAILTO = 'mailto:hello@bawarchi.example';
 
 // SAMPLE PRICES (assumed, not final). Change them here and every page follows.
 export const PRICES = {

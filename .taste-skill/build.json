@@ -1,0 +1,11 @@
+{
+ "page": "dist/index.html",
+ "url": null,
+ "root": "dist",
+ "kind": "software",
+ "category": "QR ordering software for restaurants",
+ "primary": "Sign up your restaurant",
+ "rounds": 3,
+ "start": "2026-11-14T11:30:50.556Z",
+ "by": "gate.mjs --start"
+}

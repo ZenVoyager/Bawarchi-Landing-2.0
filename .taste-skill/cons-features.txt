@@ -1,0 +1,179 @@
+consistency  D:\ZenVoyager\Bawarchi\dist\features.html
+
+1440x900  7 screens, 1 held section  0 FAIL  12 WARN
+  WARN empty-visual    figure.mo-pc__visual.bw-visual:nth-of-type(1) > div.bw-visual__in > div.ui.bw-phone > div.bw-phone__screen  "ph-menu-600.webp"
+       the picture ph-menu-600.webp has loaded but stays at opacity 0.00 once the page is scrolled through, still 1.1 s after it is brought to the middle of the screen: its frame shows only its ground (a reveal that never fires) (caught mid-way through a scroll-linked animation)  [1440-03-empty-visual.jpg]
+       fix: show the picture at rest: reveal it with a threshold the frame can reach (0.1-0.2), or not at all
+  WARN empty-visual    figure.mo-pc__visual.bw-visual:nth-of-type(2) > div.bw-visual__in > div.ui.bw-phone > div.bw-phone__screen  "ph-profile-600.webp"
+       the picture ph-profile-600.webp has loaded but stays at opacity 0.00 once the page is scrolled through, still 1.1 s after it is brought to the middle of the screen: its frame shows only its ground (a reveal that never fires) (caught mid-way through a scroll-linked animation)  [1440-04-empty-visual.jpg]
+       fix: show the picture at rest: reveal it with a threshold the frame can reach (0.1-0.2), or not at all
+  WARN scroll-linked   section#guests > div.wrap.mo-pc__grid  "QR ordering from the guest’s phone How g"
+       held on screen for 1 screen of scroll (position: sticky), and 6 parts inside change as the page scrolls through it (colour, opacity, moves): h3, h3, figure.mo-pc__visual.bw-visual:nth-of-type(1), figure.mo-pc__visual.bw-visual:nth-of-type(2), ... (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1440-09-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN button-styles   button#tab-menu  "Edit menu"
+       the selected tab "Edit menu" is drawn as a filled pill in #faf6ef (its sliding indicator), a fill none of the page's buttons use (#c2410c): it reads as one more button style  [1440-08-button-styles.jpg]
+       fix: draw the selected tab as a line under its word, or in the primary button's fill
+  WARN copy-headings   div.wrap > div.grid > article.card.card--row:nth-of-type(3) > h3  "Prints one QR code per table"
+       "Prints one QR code per table" names no product, part, place or section (the one brand line a page may have)  [1440-05-copy-headings.jpg]
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  WARN section-gaps    section#floor / section#office
+       189px between these sections, -36% against the median 296px of gaps at a change of ground  [1440-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#floor / section#office
+       uneven space at the edge of a band: 72px outside its edge, 117px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1440-07-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [1440-01-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN action-repeat   header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "sign up your restaurant"
+       "sign up your restaurant" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1440-10-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+  WARN assumed         div.hero-text.grid > div.span-3:nth-of-type(1) > p.hero__lead > span  "Plans from ₹1,299 a month."
+       1 fact marked as assumed, for the report: "Plans from ₹1,299 a month."  [1440-02-assumed.jpg]
+       fix: list each assumed fact in the report for the client to confirm, or take it from the brief
+  WARN hidden-content  div.bw-visual__in > div.ui.bw-phone > div.bw-phone__screen > img.shot__img  "the photograph ph-profile-600.webp"
+       with no IntersectionObserver callback (a script that never gets that far) 3 lines stay hidden on screen 2, 4 s after load (opacity 0) inside a drawn mock: "the photograph ph-fa", "the photograph ph-co": the page shows it only when a script reveals it  [1440-io-01-hidden-content.jpg]
+       fix: show the content at rest: the hidden state only under a class the script adds on its live path, never in the plain CSS (prefers-reduced-motion and a script that never runs show the finished page)
+  WARN container-edges div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1)  "Guest QR orderingGuests scan the code on"
+       3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also "Customer profilesEvery guest who", "Restaurant coupons and favourite") (it is in a scroll scene: told as a WARN) (SR-6)  [1440-rhythm-01-container-edges.jpg]
+       fix: start the text on the container's left, or on the one split line every split shares
+
+1024x768  8 screens  1 FAIL  8 WARN
+  FAIL section-gaps    section#floor / section#office
+       190px between these sections, -71% against the median 664px of gaps at a change of ground  [1024-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN empty-visual    figure.mo-pc__visual.bw-visual:nth-of-type(1) > div.bw-visual__in > div.ui.bw-phone > div.bw-phone__screen  "ph-menu-600.webp"
+       the picture ph-menu-600.webp has loaded but stays at opacity 0.00 once the page is scrolled through, still 1.1 s after it is brought to the middle of the screen: its frame shows only its ground (a reveal that never fires) (caught mid-way through a scroll-linked animation)  [1024-03-empty-visual.jpg]
+       fix: show the picture at rest: reveal it with a threshold the frame can reach (0.1-0.2), or not at all
+  WARN scroll-linked   section#guests > div.wrap.mo-pc__grid > div.mo-pc__visuals.frame > figure.mo-pc__visual.bw-visual:nth-of-type(1)
+       fades with the scroll and changes back when the scroll goes back (opacity), eased after the scroll stops; 5 more parts of this section change with the scroll too (figure.mo-pc__visual.bw-visual:nth-of-type(2), figure.mo-pc__visual.bw-visual:nth-of-type(3), h3, h3, ...) (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1024-04-scroll-linked.jpg]
+       fix: remove the scroll-driven motion; motion lives inside a visual as a small loop
+  WARN scroll-reveal   section#guests  "QR ordering from the guest’s phone How g"
+       starts "border-left-color" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(2) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1024-05-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN no-visual       main#top > section.hero.hero--triptych  "Restaurant features from table to office"
+       pictures, effects and mocks cover 25% of this section; a feature section needs a visual (about 25% or more)  [1024-01-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  WARN button-styles   button#tab-menu  "Edit menu"
+       the selected tab "Edit menu" is drawn as a filled pill in #faf6ef (its sliding indicator), a fill none of the page's buttons use (#c2410c): it reads as one more button style  [1024-08-button-styles.jpg]
+       fix: draw the selected tab as a line under its word, or in the primary button's fill
+  WARN section-gaps    section#floor / section#office
+       uneven space at the edge of a band: 72px outside its edge, 118px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1024-07-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [1024-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN action-repeat   header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "sign up your restaurant"
+       "sign up your restaurant" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1024-09-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+
+820x1180  9 screens  0 FAIL  5 WARN
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (772px), while its first starts on the other edge  [820-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN button-styles   button#tab-menu  "Edit menu"
+       the selected tab "Edit menu" is drawn as a filled pill in #faf6ef (its sliding indicator), a fill none of the page's buttons use (#c2410c): it reads as one more button style  [820-04-button-styles.jpg]
+       fix: draw the selected tab as a line under its word, or in the primary button's fill
+  WARN section-gaps    section#guests / section#floor
+       332px between these sections, +42% against the median 233px  [820-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [820-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN row-lines       ol.mo-pc__steps > li.mo-pc__step:nth-of-type(3) > figure.mo-pc__visual.bw-visual > div.bw-visual__in.shot-pair
+       a row of 2 items: its first item starts at 153px, the container's left line at 48px; its last item ends at 573px, the container's right line at 772px (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)  [820-rhythm-01-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+
+768x1024  9 screens  0 FAIL  4 WARN
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (720px), while its first starts on the other edge  [768-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN button-styles   button#tab-menu  "Edit menu"
+       the selected tab "Edit menu" is drawn as a filled pill in #faf6ef (its sliding indicator), a fill none of the page's buttons use (#c2410c): it reads as one more button style  [768-03-button-styles.jpg]
+       fix: draw the selected tab as a line under its word, or in the primary button's fill
+  WARN label-centre    header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Sign up your restaurant"
+       its label sits 18px off-centre (25px of room at the left, 43px at the right) (and 1 more like it: "Sign up your restaurant")  [768-02-label-centre.jpg]
+       fix: centre the label in its button, or fill the empty side with an icon
+  WARN row-lines       ol.mo-pc__steps > li.mo-pc__step:nth-of-type(3) > figure.mo-pc__visual.bw-visual > div.bw-visual__in.shot-pair
+       a row of 2 items: its first item starts at 111px, the container's left line at 48px; its last item ends at 531px, the container's right line at 720px (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)  [768-rhythm-01-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+
+390x844  10 screens  0 FAIL  7 WARN
+  WARN nav             div#root > header.nav > div.wrap.nav__bar > button.nav__toggle
+       the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge  [390-01-nav.jpg]
+       fix: start the nav's first item and end its last on the content's two edges
+  WARN button-styles   button#tab-menu  "Edit menu"
+       the selected tab "Edit menu" is drawn as a filled pill in #faf6ef (its sliding indicator), a fill none of the page's buttons use (#c2410c): it reads as one more button style  [390-05-button-styles.jpg]
+       fix: draw the selected tab as a line under its word, or in the primary button's fill
+  WARN section-gaps    main#top > section.hero.hero--triptych / section#guests
+       118px between these sections, -57% against the median 273px  [390-02-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#guests / section#floor
+       364px between these sections, +33% against the median 273px  [390-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#floor / section#office
+       uneven space at the edge of a band: 179px outside its edge, 94px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [390-04-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN container-edges div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1)  "Guest QR orderingGuests scan the code on"
+       12 text blocks start on a left line at x 50, 26px from the container's left: text starts on the container's left, or on one split line (x 177, 207, 238) (also "Guest QR ordering", "Guests scan the code on their ta", "Guests scan the code on their ta") (it is in a scroll scene: told as a WARN) (SR-6)  [390-rhythm-01-container-edges.jpg]
+       fix: start the text on the container's left, or on the one split line every split shares
+  WARN row-lines       ol.mo-pc__steps > li.mo-pc__step:nth-of-type(3) > figure.mo-pc__visual.bw-visual > div.bw-visual__in.shot-pair
+       a row of 2 items: its first item starts at 50px, the container's left line at 24px (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)  [390-rhythm-02-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+
+first screen at 1280, 1152, 896  0 FAIL  0 WARN
+
+the page at 320x640, walked for what runs past the screen's edge  0 FAIL
+
+checks
+  PASS assets                 PASS shader-lint            PASS gl-fallback            
+  WARN empty-visual           PASS hero-fill              PASS flush                  
+  PASS placeholder            PASS sample-label           PASS caption                
+  PASS credit-wall            WARN nav                    PASS nav-covers             
+  PASS spill                  PASS off-viewport           PASS fold-card              
+  PASS hover-spill            PASS overlap-text           PASS collide                
+  PASS tap-size               PASS row-gap                PASS cut-text               
+  PASS fold-cut               PASS marquee                WARN scroll-linked          
+  WARN scroll-reveal          PASS pinned                 PASS loop-pause             
+  PASS reduced-motion         WARN hidden-content         PASS webgl                  
+  WARN no-visual              PASS text-only              PASS card-visual            
+  PASS hidden-visual          PASS card-family            PASS card-layout            
+  PASS nesting                PASS effect-repeat          PASS ui-fit                 
+  PASS ui-centre              PASS dark-ground            WARN button-styles          
+  PASS button-shape           PASS same-action            PASS button-picture         
+  PASS cta                    PASS pricing-tiers          PASS copy-headline          
+  PASS copy-fact              WARN copy-headings          PASS copy-buttons           
+  PASS copy-actions           PASS heading-scale          PASS stagger                
+  PASS top-stagger            PASS off-grid               PASS col-edge               
+  PASS right-edge             PASS centre-axis            PASS tilt                   
+  PASS contrast               PASS text-contrast          PASS body-size              
+  PASS busy-ground            FAIL section-gaps           PASS proximity              
+  PASS hole                   PASS links                  PASS forms                  
+  PASS photo-upscale          PASS photo-set              PASS photo-credit           
+  PASS nav-family             PASS nav-labels             PASS link-styles            
+  PASS heading-align          WARN label-centre           PASS fake-button            
+  PASS stranded-action        PASS orphan                 PASS unit-break             
+  PASS tab-wrap               PASS effects-fit            PASS fade-cut               
+  PASS photo-weight           PASS copy-length            PASS nav-current            
+  PASS progress-bar           PASS photo-repeat           PASS button-contrast        
+  PASS photo-print            PASS grounds                PASS split-align            
+  PASS fact-agree             PASS fold-action            PASS action-count           
+  PASS one-screen             PASS hover                  PASS hover-move             
+  PASS product-shown          PASS same-object            PASS font-load              
+  PASS visual-caption         PASS visual-empty           PASS effect-kind            
+  PASS hero-enter             PASS moment-none            PASS street-number          
+  PASS postcode               PASS coordinates            PASS company-number         
+  PASS phone-number           PASS hero-screen            PASS section-height         
+  PASS section-air            PASS one-section            PASS one-heading            
+  WARN container-edges        WARN row-lines              PASS split-pair             
+  PASS motion-layer           PASS count-text             PASS loop-cycle             
+  PASS section-tile           PASS empty-area             PASS a11y-name              
+  PASS img-alt                PASS field-label            PASS heading-order          
+  PASS tabindex               PASS focus-ring             PASS focus-visible          
+  PASS focus-hidden           PASS skip-link              PASS menu-toggle            
+  PASS lang                   PASS page-meta              PASS share-meta             
+  WARN action-repeat          PASS map-link               PASS open-now               
+  WARN assumed                PASS run-on                 PASS form-fields            
+  PASS form-send              
+
+total  1 FAIL  36 WARN  (crops and report.json in D:\ZenVoyager\Bawarchi\dist\.taste-skill\consistency-features)

@@ -26,7 +26,7 @@ export default function Home() {
               <a className="btn btn--secondary" href="/features.html">See all features</a>
             </div>
           </div>
-          <div className="hero__window" data-fx="grain-gradient" data-fx-seed="7" role="img" aria-label="Bawarchi's dashboard: today's orders, active orders, growth and revenue, the daily goal, stock running low and six months of revenue">
+          <div className="hero__window" data-fx="grain-gradient" data-fx-seed="7" role="img" aria-label="Bhawarchi's dashboard: today's orders, active orders, growth and revenue, the daily goal, stock running low and six months of revenue">
             <Screen name="dashboard" className="ly-piece" eager sizes="(max-width: 1023px) 92vw, 960px" />
           </div>
         </div></div>
@@ -39,7 +39,7 @@ export default function Home() {
             <h2 className="span-5" id="orders-h">Every order from every table, in one window</h2>
             <p className="span-6 start-7">New orders arrive from the table QR, go to the kitchen with one tap and move from preparing to served to paid while you watch. <a className="link" href="/features.html#floor">See order management</a></p>
           </div>
-          <div className="shot-fill fill" role="img" aria-label="Bawarchi's order management screen: each table's order with its time to prepare, payment and dishes, a new order from Table 4 waiting to be accepted">
+          <div className="shot-fill fill" role="img" aria-label="Bhawarchi's order management screen: each table's order with its time to prepare, payment and dishes, a new order from Table 4 waiting to be accepted">
             <Screen name="orders" sizes="(max-width: 1279px) 92vw, 1200px" />
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
         <div className="wrap">
           <div className="group">
             <div className="section-head">
-              <h2 id="features-h">What Bawarchi runs for you. <span className="muted">Menus, stock and sales sit beside the orders.</span></h2>
+              <h2 id="features-h">What Bhawarchi runs for you. <span className="muted">Menus, stock and sales sit beside the orders.</span></h2>
             </div>
             <div className="grid">
               <article className="card card--row card--open span-6 m-nolift">
@@ -65,7 +65,7 @@ export default function Home() {
               <article className="card card--row card--open span-6 m-nolift">
                 <h3>Menu changes in one tap</h3>
                 <p>Change a price or take a dish off for the night, and the menu on every table changes with it.</p>
-                <div className="panel" role="img" aria-label="Bawarchi's menu management: 58 dishes in 12 categories, two unavailable, and the dishes with their prices">
+                <div className="panel" role="img" aria-label="Bhawarchi's menu management: 58 dishes in 12 categories, two unavailable, and the dishes with their prices">
                   <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': '440px', '--ax': 'max(24px, 50% - 220px)', '--ay': '40px', '--ay-sm': '16px' }}>
                     <Screen name="menu" sizes="440px" />
                   </div></div>
@@ -77,7 +77,7 @@ export default function Home() {
             <article className="card card--row card--open span-6 m-nolift">
               <h3>Counts stock as orders come in</h3>
               <p>Each dish uses up its ingredients, so you see the paneer running low before the dinner rush.</p>
-              <div className="panel" role="img" aria-label="Bawarchi's stock: tomatoes in stock, paneer low with 3 kg left and garam masala out of stock">
+              <div className="panel" role="img" aria-label="Bhawarchi's stock: tomatoes in stock, paneer low with 3 kg left and garam masala out of stock">
                 <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': '360px', '--ax': 'max(24px, 50% - 180px)', '--ay': '40px', '--ay-sm': '16px' }}>
                   <Screen name="dash-inventory" sizes="360px" />
                 </div></div>
@@ -86,7 +86,7 @@ export default function Home() {
             <article className="card card--row card--open span-6 m-nolift">
               <h3>Shows today’s sales by the hour</h3>
               <p>Revenue, orders and your best-selling dish for today, this week or any date you pick.</p>
-              <div className="panel" role="img" aria-label="Bawarchi's analytics: revenue month by month from June to November">
+              <div className="panel" role="img" aria-label="Bhawarchi's analytics: revenue month by month from June to November">
                 <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': '480px', '--ax': 'max(24px, 50% - 240px)', '--ay': '40px', '--ay-sm': '16px' }}>
                   <Screen name="dash-analytics" sizes="480px" />
                 </div></div>
@@ -118,7 +118,7 @@ export default function Home() {
               </ul>
               <a className="link" href="/features.html#floor">See table management</a>
             </div>
-            <div className="frame frame--split span-6 start-7 fill" role="img" aria-label="Bawarchi's floor view of the ground floor: the kitchen, reception and tables, with Table 1's order open beside it">
+            <div className="frame frame--split span-6 start-7 fill" role="img" aria-label="Bhawarchi's floor view of the ground floor: the kitchen, reception and tables, with Table 1's order open beside it">
               <div className="stage stage--fade-br"><div className="at-rise fit" style={{ '--fit-max': '560px', '--ax': '48px', '--ay': '56px', '--ay-sm': '24px' }}>
                 <Screen name="orders-floor" sizes="(max-width: 639px) 92vw, 560px" />
               </div></div>

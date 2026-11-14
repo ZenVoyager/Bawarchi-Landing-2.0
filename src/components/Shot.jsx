@@ -1,4 +1,4 @@
-// Bawarchi's real product screens: web copies of the design screenshots in "UI Designs Screenshots/",
+// Bhawarchi's real product screens: web copies of the design screenshots in "UI Designs Screenshots/",
 // made by scripts/shots.mjs (npm run shots) into public/shots/. The images are decorative (alt=""):
 // the frame that holds one carries role="img" and an aria-label saying what it shows.
 import SHOTS from '../data/shots.json';
