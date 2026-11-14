@@ -1,4 +1,4 @@
-# Bhawarchi website
+# Bhawarchi
 
 The marketing site for Bhawarchi, the restaurant management and QR ordering software. It's built with React 18 and Vite and has four pages:
 
