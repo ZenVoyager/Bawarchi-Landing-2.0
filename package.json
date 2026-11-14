@@ -1,0 +1,23 @@
+{
+  "name": "bhawarchi-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "shots": "node scripts/shots.mjs"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@fontsource-variable/urbanist": "^5.1.1",
+    "@fontsource/dm-mono": "^5.1.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "sharp": "^0.33.5",
+    "vite": "5.4.11"
+  }
+}

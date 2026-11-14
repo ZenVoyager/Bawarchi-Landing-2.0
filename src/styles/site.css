@@ -1,0 +1,145 @@
+/* Page CSS for the Bawarchi site. The design system (grid, type, buttons, cards, sections) is the
+   kit in /assets; this file holds only what sits inside a visual (Bawarchi's real product screens,
+   the phone they sit in and the pricing page's invoice) and one --p-h per card group, as the kit allows. */
+
+#root { display: contents; }
+
+/* ---------- the product screenshots (src/components/Shot.jsx) ---------- */
+/* an admin screen: the screenshot in a dark rounded frame, as wide as the place that holds it */
+.shot { display: block; width: 100%; overflow: hidden; border-radius: 12px; background: #161311;
+  box-shadow: 0 0 0 1px rgb(31 26 21 / .12), 0 24px 60px -28px rgb(31 26 21 / .55); }
+.shot__img { display: block; width: 100%; height: auto; max-width: none; }
+
+/* a guest's screen: the screenshot in a phone */
+.bw-phone { width: 270px; padding: 9px; border-radius: 38px; background: #2a241f;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08), 0 0 0 1px rgb(31 26 21 / .25), 0 30px 60px -30px rgb(31 26 21 / .6); }
+.bw-phone__screen { border-radius: 30px; overflow: hidden; background: #161311; }
+.bw-phone--fluid { width: 100%; max-width: 270px; }
+.panel .bw-phone { transform-origin: top center; }
+.ly-collage .ly-piece--bare { background: none; box-shadow: none; border-radius: 38px; overflow: visible; }
+
+/* a screen that takes what the section leaves under its heading, cut at the bottom (Home #orders) */
+.shot-fill { position: relative; margin-top: var(--s-7); min-height: 280px; }
+.shot-fill > .shot { position: absolute; inset: 0; }
+.shot-fill .shot__img { height: 100%; object-fit: cover; object-position: top center; }
+
+/* two phones side by side in one chapter's picture (Features #guests) */
+.shot-pair { display: flex; justify-content: center; gap: 16px; }
+.shot-pair > .bw-phone { width: calc(50% - 8px); max-width: 220px; padding: 7px; border-radius: 30px; }
+.shot-pair > .bw-phone .bw-phone__screen { border-radius: 24px; }
+
+/* ---------- the invoice (pricing page) ---------- */
+.bw-card {
+  --bw-ink: #1f1a15; --bw-text: #3d3730; --bw-muted: #77706a; --bw-line: rgb(31 26 21 / .09);
+  font: 400 13px/1.4 var(--font-text); color: var(--bw-ink); text-align: left;
+  font-variant-numeric: tabular-nums;
+  background: #fff; border-radius: 12px; padding: 14px 16px;
+  box-shadow: 0 0 0 1px rgb(31 26 21 / .08), 0 18px 44px -22px rgb(31 26 21 / .4);
+}
+.bw-card b { font-weight: 500; }
+.bw-card small { font-size: 12px; color: var(--bw-muted); }
+.bw-num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+.bw-card__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.bw-card__head b { font-size: 14px; }
+.bw-pay__rows { display: grid; border-top: 1px solid var(--bw-line); }
+.bw-pay__rows > div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--bw-line); }
+.bw-invoice__total { font-weight: 500; font-size: 14px; border-bottom: 0 !important; }
+.faq__bill { margin-top: var(--s-7); max-width: 410px; }
+
+/* ---------- the hero window (centred hero) ---------- */
+.hero__window { background: linear-gradient(180deg, #f3d9c2, #f7e7d6 60%, #faf6ef); }
+
+/* ---------- card groups: one --p-h each ---------- */
+#features .panel { --p-h: 320px; }
+#steps .panel { --p-h: 300px; }
+#floor .panel { --p-h: 336px; }
+@media (max-width: 639px) {
+  #features .panel { --p-h: 200px; }
+  #steps .panel { --p-h: 200px; }
+  #floor .panel { --p-h: 320px; }
+}
+
+/* the nav's menu card */
+.menu-card__panel { --p-h: 160px; }
+
+/* tabs-tour screens */
+.tour-screen { position: absolute; inset: 0; }
+.tab-panels { margin-top: var(--s-5); }
+
+/* comparison table */
+.compare { margin-top: var(--s-7); }
+.compare__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s-5); align-items: center; min-height: 42px; border-bottom: 1px solid color-mix(in oklab, currentColor 14%, transparent); }
+.compare__row > :first-child { grid-column: span 6; }
+.compare__row > :not(:first-child) { grid-column: span 2; }
+.compare__row--head { min-height: 56px; font-weight: 500; border-bottom: 0; }
+.compare__row--head > span { color: var(--ink); }
+.compare__row--group { min-height: 56px; align-items: end; padding-bottom: var(--s-2); border-bottom: 0; }
+.compare__yes { display: inline-block; width: 16px; height: 16px; }
+.compare__no { color: color-mix(in oklab, currentColor 70%, transparent); }
+@media (max-width: 639px) {
+  .compare__row { grid-template-columns: minmax(0, 1fr) 64px 64px 64px; gap: var(--s-2); min-height: 40px; font-size: 14px; line-height: 1.3; }
+  .compare__row > :first-child, .compare__row > :not(:first-child) { grid-column: auto; }
+  .compare__row--head > span { font-size: 13px; }
+}
+
+/* signup form's plan field */
+.form select { width: 100%; height: 48px; font: inherit; font-size: 16px; padding: 0 12px; border-radius: var(--r-sm); border: 1px solid color-mix(in oklab, var(--ink) 20%, transparent); background: var(--bg); color: var(--ink); }
+
+/* split-text-left's three short facts, as plain lines */
+.plain-facts { list-style: none; padding: 0; margin-bottom: 0; display: grid; gap: var(--s-2); }
+
+/* product screens inside moments, heroes and cards */
+.bw-visual { background: color-mix(in oklab, var(--p-accent) 10%, var(--p-surface)); aspect-ratio: 4 / 3; display: grid; place-items: start center; overflow: hidden; }
+.bw-visual__in { width: min(420px, 86%); margin-top: 32px; }
+.bw-visual__in > .bw-phone { margin: 0 auto; }
+
+/* the split hero's screen (pricing): in from the left and top, cut by the right and bottom edges */
+.hero__media--ui { background: color-mix(in oklab, var(--p-accent) 12%, var(--p-surface)); padding: 40px 0 0 40px; }
+.hero__media--ui > .shot { height: 100%; border-radius: 12px 0 0 0; }
+.hero__media--ui > .shot .shot__img { height: 100%; object-fit: cover; object-position: top left; }
+@media (max-width: 639px) { .hero__media--ui { padding: 24px 0 0 24px; } }
+
+.signup-panel { --bg: var(--p-bg); --surface: var(--p-surface); --ink: var(--p-ink); --muted: var(--p-muted); --action: var(--p-action); --action-ink: var(--p-action-ink);
+  --line: color-mix(in oklab, var(--p-ink) 14%, transparent); --line-strong: color-mix(in oklab, var(--p-ink) 28%, transparent);
+  background: var(--p-surface); border-radius: var(--r-lg); padding: var(--s-7); color: var(--p-ink); }
+@media (max-width: 639px) { .signup-panel { padding: var(--s-5); } }
+
+/* body text in the ink (7:1): the hero's line and the app frame's paragraph */
+.hero .hero-text .hero__lead { color: var(--ink); }
+
+/* the frames on the dark bands: a lit ground, as tall as the screen's content box */
+#tables .frame--split, #office .frame--split { background: linear-gradient(160deg, #f6dcc4, #f7e9da 55%, #faf6ef); }
+@media (min-width: 1024px) { #tables .frame--split, #office .frame--split { aspect-ratio: auto; height: calc(100svh - var(--padt) - var(--padb) - var(--bar)); } }
+
+/* the triptych's collage on a phone: one piece of each set, the width of the column */
+@media (max-width: 639px) {
+  .hero--triptych .ly-collage { overflow: hidden; }
+  .hero--triptych .ly-collage__set > .ly-piece { left: 0 !important; top: 0 !important; width: 100% !important; }
+  .hero--triptych .ly-collage__set > .ly-piece:nth-child(2) { display: none; }
+  .hero--triptych .ly-collage__set:first-child > .ly-piece:first-child { display: none; }
+  .hero--triptych .ly-collage__set:first-child > .ly-piece:nth-child(2) { display: block; }
+  .hero--triptych .ly-collage__set > .ly-piece--bare { left: 50% !important; width: min(240px, 70%) !important; transform: translateX(-50%); }
+}
+
+.plan__top { display: flex; align-items: center; gap: var(--s-2); }
+
+/* the plans on a phone: the three cards inside two screens */
+@media (max-width: 639px) {
+  #plans .card.card--plan { gap: var(--s-2); }
+  #plans .card--plan > .t-small { display: none; }
+  #plans .checks { gap: var(--s-2); }
+}
+
+/* the collage hero (how it works): the order screen, and the guest's phone over its lower left */
+.hero__art { background: linear-gradient(160deg, #f6dcc4, #f3e4d3 55%, #efe7dc); }
+.hero__art > .ly-piece--phone { left: var(--s-6); top: 36%; width: 200px; z-index: 2; }
+@media (max-width: 1023px) { .hero__art > .ly-piece--phone { left: var(--s-4); width: 170px; } }
+@media (max-width: 639px) { .hero__art > .ly-piece--phone { display: none; } }
+
+/* the six steps on a phone: the words of each step, the pictures from 640px up */
+@media (max-width: 639px) { #steps .card .panel { display: none; } }
+.steps__phone { display: none; }
+@media (max-width: 639px) {
+  #steps .steps__phone { display: block; --p-h: 300px; margin-bottom: var(--s-6); border-radius: var(--r-lg); }
+  #steps .wrap > .grid, #steps .wrap > .group > .grid { align-self: start !important; flex: none !important; }
+}

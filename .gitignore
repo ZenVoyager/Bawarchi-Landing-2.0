@@ -1,0 +1,7 @@
+node_modules
+dist
+dist-ssr
+shots
+.taste-skill/chrome-*
+.agents
+.claude
