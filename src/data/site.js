@@ -7,12 +7,11 @@ export const MAIN_ACTION = 'Sign up your restaurant';
 export const SIGNUP_HREF = '/how-it-works.html#signup';
 
 // Stand-in contact address until the real one exists (the form posts here as a mailto).
-export const CONTACT_MAILTO = 'mailto:hello@bawarchi.example';
+export const CONTACT_MAILTO = 'mailto:hello@bawarchi.com';
 
 // SAMPLE PRICES (assumed, not final). Change them here and every page follows.
 export const PRICES = {
-  starter: '₹1,299',
-  growth: '₹2,799',
+  starter: '₹299',
 };
 export const FROM_PRICE = PRICES.starter;
 

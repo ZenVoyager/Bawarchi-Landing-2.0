@@ -2,6 +2,8 @@ import { Page } from '../components/Shell.jsx';
 import { Arrow } from '../components/Arrow.jsx';
 import { MAIN_ACTION, SIGNUP_HREF, FROM_PRICE } from '../data/site.js';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
+import { useRef } from 'react';
+import { useHeroScrub } from '../components/useHeroScrub.js';
 
 /*
   type: software (restaurant management and QR ordering SaaS)
@@ -12,13 +14,15 @@ import { Screen, PhoneShot } from '../components/Shot.jsx';
   moment: word-highlight in #why (its own one-screen statement section)
 */
 export default function Home() {
+  const heroRef = useRef(null);
+  useHeroScrub(heroRef);
   return (
     <Page current="home">
-      {/* hero: centred (x.ai's hero) */}
-      <section className="hero hero--centred" data-enter aria-labelledby="hero-h">
+      {/* hero: centred (x.ai's hero); scrolling grows its window to fill the screen (useHeroScrub) */}
+      <section ref={heroRef} className="hero hero--centred" data-enter aria-labelledby="hero-h">
         <div className="wrap"><div className="hero-text">
           <div className="hero__c">
-            <a className="pill" href="/pricing.html"><span data-assumed>Plans from {FROM_PRICE} a month</span><span className="muted">Pricing</span></a>
+            <a className="pill" href="/pricing.html"><span data-assumed>At just <span className='fw-bold'>{FROM_PRICE}</span> a month</span><span className="muted">Pricing</span></a>
             <h1 id="hero-h">QR ordering software for restaurants</h1>
             <p className="hero__lead">Guests scan the code on their table, order and pay from their phone. Each order reaches your kitchen at once, and tables, stock and sales update on one dashboard.</p>
             <div className="btn-row">
@@ -45,35 +49,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* features-2x2, two screens */}
-      <section className="section g2" id="features" aria-labelledby="features-h">
+      {/* features-2x2: one grid, so the rows sit as far apart as the columns */}
+      <section className="section" id="features" aria-labelledby="features-h">
         <div className="wrap">
-          <div className="group">
-            <div className="section-head">
-              <h2 id="features-h">What Bhawarchi runs for you. <span className="muted">Menus, stock and sales sit beside the orders.</span></h2>
-            </div>
-            <div className="grid">
-              <article className="card card--row card--open span-6 m-nolift">
-                <h3>Shows guests your menu on their phone</h3>
-                <p>Guests scan the table QR, pick dishes and send the order. It reaches you with the table number on it.</p>
-                <div className="panel" role="img" aria-label="The guest's phone: the restaurant's menu with a search, a featured dish and the top-rated dishes">
-                  <div className="stage stage--fade-b"><div className="at-rise" style={{ '--ax': 'max(24px, 50% - 135px)', '--ay': '32px', '--ay-sm': '16px' }}>
-                    <PhoneShot name="ph-home" />
-                  </div></div>
-                </div>
-              </article>
-              <article className="card card--row card--open span-6 m-nolift">
-                <h3>Menu changes in one tap</h3>
-                <p>Change a price or take a dish off for the night, and the menu on every table changes with it.</p>
-                <div className="panel" role="img" aria-label="Bhawarchi's menu management: 58 dishes in 12 categories, two unavailable, and the dishes with their prices">
-                  <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': '440px', '--ax': 'max(24px, 50% - 220px)', '--ay': '40px', '--ay-sm': '16px' }}>
-                    <Screen name="menu" sizes="440px" />
-                  </div></div>
-                </div>
-              </article>
-            </div>
+          <div className="section-head">
+            <h2 id="features-h">What Bawarchi runs for you. <span className="muted">Menus, stock and sales sit beside the orders.</span></h2>
           </div>
           <div className="grid">
+            <article className="card card--row card--open span-6 m-nolift">
+              <h3>Shows guests your menu on their phone</h3>
+              <p>Guests scan the table QR, pick dishes and send the order. It reaches you with the table number on it.</p>
+              <div className="panel" role="img" aria-label="The guest's phone: the restaurant's menu with a search, a featured dish and the top-rated dishes">
+                <div className="stage stage--fade-b"><div className="at-rise" style={{ '--ax': 'max(24px, 50% - 135px)', '--ay': '32px', '--ay-sm': '16px' }}>
+                  <PhoneShot name="ph-home" />
+                </div></div>
+              </div>
+            </article>
+            <article className="card card--row card--open span-6 m-nolift">
+              <h3>Menu changes in one tap</h3>
+              <p>Change a price or take a dish off for the night, and the menu on every table changes with it.</p>
+              <div className="panel" role="img" aria-label="Bhawarchi's menu management: 58 dishes in 12 categories, two unavailable, and the dishes with their prices">
+                <div className="stage stage--fade-b"><div className="at-rise fit" style={{ '--fit-max': '440px', '--ax': 'max(24px, 50% - 220px)', '--ay': '40px', '--ay-sm': '16px' }}>
+                  <Screen name="menu" sizes="440px" />
+                </div></div>
+              </div>
+            </article>
             <article className="card card--row card--open span-6 m-nolift">
               <h3>Counts stock as orders come in</h3>
               <p>Each dish uses up its ingredients, so you see the paneer running low before the dinner rush.</p>
@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* steps: getting started, three real steps */}
-      <section className="section" id="steps" style={{ '--hm': 2 }} aria-labelledby="steps-h">
+      <section className="section" id="steps" aria-labelledby="steps-h">
         <div className="wrap">
           <div className="section-head">
             <h2 id="steps-h">Start taking QR orders in 3 steps</h2>

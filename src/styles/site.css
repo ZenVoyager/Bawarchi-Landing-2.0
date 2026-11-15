@@ -46,11 +46,44 @@
 .bw-invoice__total { font-weight: 500; font-size: 14px; border-bottom: 0 !important; }
 .faq__bill { margin-top: var(--s-7); max-width: 410px; }
 
+/* ---------- Fonts Typography Text ---------- */
+.fw-regular{
+  font-weight: 500;
+}
+.fw-bold{
+  font-weight: 700;
+}
+.fw-black{
+  font-weight: 900;
+}
+
 /* ---------- the hero window (centred hero) ---------- */
 .hero__window { background: linear-gradient(180deg, #f3d9c2, #f7e7d6 60%, #faf6ef); }
 
+/* Home: the window grows with the scroll (src/components/useHeroScrub.js, a scrubbed GSAP timeline, adds
+   .is-scrub). The hero is 70% of a screen taller and its .wrap sticks to the top, so it stays put while
+   the timeline runs (55% of a screen) and holds the full window a moment before the page moves on.
+   Same query as the hook: a phone or portrait tablet keeps the hero as built. */
+@media (min-width: 640px) and (min-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference) {
+  main > .hero.is-scrub { height: calc(100svh + 70svh); padding: 0; }
+  .hero.is-scrub > .wrap {
+    position: sticky; top: 0; box-sizing: border-box; height: 100vh; height: 100svh;
+    padding-top: calc(var(--nav) + var(--photo, 0px) + var(--hgap)); padding-bottom: calc(var(--hpadb) + var(--bar));
+  }
+  .hero.is-scrub .hero__window { z-index: 2; }
+}
+
+/* ---------- Home #features: the 2x2 grid ---------- */
+/* as tall as its content (not two fixed screens), so no empty band opens between the two rows */
+main > #features { height: auto; min-height: 0; }
+/* more room under the heading than the kit's --head-gap: 64 on desktop, 48 on a phone */
+#features .section-head { margin-bottom: calc(var(--head-gap) + var(--s-4)); }
+/* rows as far apart as the columns (24 / 24); a phone stacks to one column and keeps the kit's 32 */
+@media (min-width: 640px) { #features .grid { row-gap: var(--gutter); } }
+
 /* ---------- card groups: one --p-h each ---------- */
 #features .panel { --p-h: 320px; }
+@media (min-width: 1024px) { #features .panel { --p-h: 400px; } }
 #steps .panel { --p-h: 300px; }
 #floor .panel { --p-h: 336px; }
 @media (max-width: 639px) {
@@ -85,8 +118,22 @@
 /* signup form's plan field */
 .form select { width: 100%; height: 48px; font: inherit; font-size: 16px; padding: 0 12px; border-radius: var(--r-sm); border: 1px solid color-mix(in oklab, var(--ink) 20%, transparent); background: var(--bg); color: var(--ink); }
 
-/* split-text-left's three short facts, as plain lines */
-.plain-facts { list-style: none; padding: 0; margin-bottom: 0; display: grid; gap: var(--s-2); }
+/* split-text-left's three short facts, as a list: a check in the accent and a hairline between rows */
+.plain-facts { list-style: none; padding: 0; margin-bottom: 0; display: grid; max-width: 480px; }
+.plain-facts > li { position: relative; display: flex; align-items: center; gap: var(--s-3); padding: 14px 0; border-top: 1px solid var(--line-strong); line-height: 1.4; }
+.plain-facts > li:last-child { border-bottom: 1px solid var(--line-strong); }
+/* a tinted disc, with the check (::after) drawn in the accent on top of it */
+.plain-facts > li::before {
+  content: ""; flex: none; width: 22px; height: 22px; border-radius: 50%;
+  background: color-mix(in oklab, var(--accent) 22%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 40%, transparent);
+}
+.plain-facts > li::after {
+  content: ""; position: absolute; left: 5px; top: 50%; width: 12px; height: 12px; margin-top: -6px;
+  background: var(--accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.6l4.5-5' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2 5 8.6l4.5-5' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 
 /* product screens inside moments, heroes and cards */
 .bw-visual { background: color-mix(in oklab, var(--p-accent) 10%, var(--p-surface)); aspect-ratio: 4 / 3; display: grid; place-items: start center; overflow: hidden; }
@@ -135,6 +182,34 @@
 .hero__art > .ly-piece--phone { left: var(--s-6); top: 36%; width: 200px; z-index: 2; }
 @media (max-width: 1023px) { .hero__art > .ly-piece--phone { left: var(--s-4); width: 170px; } }
 @media (max-width: 639px) { .hero__art > .ly-piece--phone { display: none; } }
+
+/* the step number (Home's three steps, How it works' six): a filled accent badge with a soft halo,
+   room under it, and from 1280 (three across) a dashed line running on to the next step's badge */
+#steps .card > .step-num {
+  position: relative; z-index: 1; align-self: flex-start;
+  width: 40px; height: 40px; margin: 6px 0 var(--s-5) 6px; border: 0;
+  background: var(--accent); color: var(--accent-ink);
+  font: 600 var(--t-body)/1 var(--font-text);
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 14%, transparent), 0 8px 18px -8px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+@media (min-width: 1280px) {
+  /* from the badge's right (6 + 40 + its 6px halo + 12) to 18px short of the next card's badge */
+  #steps .card:has(> .step-num)::before {
+    content: ""; position: absolute; top: 25px; left: 64px; right: calc(18px - var(--gutter));
+    border-top: 1.5px dashed color-mix(in oklab, var(--accent) 45%, transparent);
+  }
+  #steps .card:has(> .step-num):nth-child(3n)::before { content: none; }
+}
+/* a phone stacks the steps: a timeline, the badge to the left of the words and a line down to the next */
+@media (max-width: 639px) {
+  #steps .card:has(> .step-num) { padding-left: 64px; }
+  #steps .card > .step-num { position: absolute; left: 0; top: -6px; margin: 6px 0 0 6px; }
+  #steps .card:has(> .step-num)::before {
+    content: ""; position: absolute; left: 25px; top: 58px; bottom: calc(14px - var(--s-6));
+    border-left: 1.5px dashed color-mix(in oklab, var(--accent) 45%, transparent);
+  }
+  #steps .card:has(> .step-num):last-of-type::before { content: none; }
+}
 
 /* the six steps on a phone: the words of each step, the pictures from 640px up */
 @media (max-width: 639px) { #steps .card .panel { display: none; } }
