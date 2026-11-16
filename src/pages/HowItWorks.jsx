@@ -1,5 +1,6 @@
 import { Page } from '../components/Shell.jsx';
-import { MAIN_ACTION, PLANS, PRICES } from '../data/site.js';
+import { MAIN_ACTION, SIGNUP_HREF } from '../data/site.js';
+import { PlanPrice, PlanName } from '../components/Plan.jsx';
 import { cloneElement } from 'react';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
 
@@ -72,11 +73,11 @@ export default function HowItWorks() {
           <div className="grid">
             <div className="span-5 stack-5">
               <h2 id="signup-h">Sign up your restaurant</h2>
-              <p className="t-lead">Tell us about your restaurant and the plan you want. We reply within one working day to set up your menu and table codes.</p>
+              <p className="t-lead">Tell us about your restaurant. We reply within one working day to set up your menu and table codes.</p>
               <ul className="plain-facts">
-                <li>Starter, <span data-assumed>{PRICES.starter}</span> a month</li>
-                <li>Growth, <span data-assumed>{PRICES.growth}</span> a month</li>
-                <li>Enterprise, priced for your outlets</li>
+                <li><PlanName />, <PlanPrice /></li>
+                <li>Every feature included</li>
+                <li><a className="link" href={SIGNUP_HREF}>Or create your account yourself now</a></li>
               </ul>
             </div>
             <div className="span-6 start-7 signup-panel">
@@ -96,11 +97,6 @@ export default function HowItWorks() {
                 <div className="field"><label htmlFor="f-city">Restaurant location</label>
                   <input id="f-city" name="location" type="text" autoComplete="address-level2" required aria-describedby="f-city-err" />
                   <p className="field__error" id="f-city-err" hidden>Write the city or area your restaurant is in.</p></div>
-                <div className="field"><label htmlFor="f-plan">Plan</label>
-                  <select id="f-plan" name="plan" required aria-describedby="f-plan-err" defaultValue="Growth">
-                    {PLANS.map((p) => <option key={p.id} value={p.name}>{p.name}</option>)}
-                  </select>
-                  <p className="field__error" id="f-plan-err" hidden>Choose the plan you want to start with.</p></div>
                 <div className="btn-row"><button className="btn btn--primary" type="submit">{MAIN_ACTION}</button></div>
                 <p className="form__status" role="status" data-form-status></p>
                 <p className="t-small muted">We reply within one working day.</p>

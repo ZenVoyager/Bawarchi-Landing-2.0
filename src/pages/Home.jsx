@@ -1,6 +1,7 @@
 import { Page } from '../components/Shell.jsx';
 import { Arrow } from '../components/Arrow.jsx';
-import { MAIN_ACTION, SIGNUP_HREF, FROM_PRICE } from '../data/site.js';
+import { MAIN_ACTION, SIGNUP_HREF } from '../data/site.js';
+import { PlanPrice, PlanPer } from '../components/Plan.jsx';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
 import { useRef } from 'react';
 import { useHeroScrub } from '../components/useHeroScrub.js';
@@ -22,7 +23,7 @@ export default function Home() {
       <section ref={heroRef} className="hero hero--centred" data-enter aria-labelledby="hero-h">
         <div className="wrap"><div className="hero-text">
           <div className="hero__c">
-            <a className="pill" href="/pricing.html"><span data-assumed>At just <span className='fw-bold'>{FROM_PRICE}</span> a month</span><span className="muted">Pricing</span></a>
+            <a className="pill" href="/pricing.html"><span>At just <span className='fw-bold'><PlanPrice withPer={false} /></span> <PlanPer /></span><span className="muted">Pricing</span></a>
             <h1 id="hero-h">QR ordering software for restaurants</h1>
             <p className="hero__lead">Guests scan the code on their table, order and pay from their phone. Each order reaches your kitchen at once, and tables, stock and sales update on one dashboard.</p>
             <div className="btn-row">

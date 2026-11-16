@@ -1,35 +1,32 @@
 import { Page } from '../components/Shell.jsx';
-import { Arrow } from '../components/Arrow.jsx';
-import { MAIN_ACTION, SIGNUP_HREF, PLANS, COMPARE, PRICES } from '../data/site.js';
+import { MAIN_ACTION, SIGNUP_HREF } from '../data/site.js';
 import { Invoice } from '../components/ui/Ui.jsx';
 import { Screen } from '../components/Shot.jsx';
+import { usePlan, formatPrice, perLabel } from '../components/Plan.jsx';
 
 /*
-  type: software
-  deal: hero split; nav, close, footer, rhythm, buttons and mark as the site
-  moment: line-carries-colour on #compare (the dark band: the table on the inverse ground)
-  sections: hero · plans (pricing-three) · compare (comparison-table, dark band) · questions (faq) · close
-  PRICES ARE SAMPLES (src/data/site.js): every price carries data-assumed.
+  One plan, managed by the master admin in the admin panel (Subscription tab).
+  The page prerenders with DEFAULT_PLAN from src/data/site.js and swaps in the
+  live plan from the API after load.
 */
 
-const Check = () => (
-  <span className="compare__yes" aria-hidden="true">
-    <svg viewBox="0 0 16 16" width="16" height="16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-  </span>
-);
-
 export default function Pricing() {
+  const plan = usePlan();
+  const price = formatPrice(plan);
+  const per = perLabel(plan);
+  const cycle = plan.billingCycle === 'monthly' ? 'monthly' : 'yearly';
+
   return (
     <Page current="pricing">
       {/* hero: split */}
       <section className="hero hero--split" data-enter aria-labelledby="hero-h">
         <div className="wrap"><div className="hero-text grid hero__grid">
           <div className="hero__text span-5">
-            <h1 id="hero-h">Plans and prices for restaurants</h1>
-            <p className="hero__lead">Starter for smaller restaurants at <span data-assumed>{PRICES.starter}</span> a month, Growth for busier teams at <span data-assumed>{PRICES.growth}</span>, and Enterprise priced for groups with several outlets.</p>
+            <h1 id="hero-h">One plan, every feature</h1>
+            <p className="hero__lead">{plan.name} gives your restaurant QR ordering, orders, tables, menu, stock and analytics for {price} {per}.</p>
             <div className="btn-row">
               <a className="btn btn--primary" href={SIGNUP_HREF}>{MAIN_ACTION}</a>
-              <a className="btn btn--secondary" href="#compare">Compare the plans</a>
+              <a className="btn btn--secondary" href="#plans">See what's included</a>
             </div>
           </div>
           <div className="hero__media hero__media--ui span-6 start-7">
@@ -38,58 +35,26 @@ export default function Pricing() {
         </div></div>
       </section>
 
-      {/* pricing-three */}
+      {/* the plan */}
       <section className="section" id="plans" style={{ '--hm': 2 }} aria-labelledby="plans-h">
         <div className="wrap">
           <div className="section-head">
             <h2 id="plans-h">Pricing</h2>
-            <p>Monthly prices per restaurant. Every plan includes table QR ordering and the dashboard.</p>
+            <p>One price per restaurant. GST is added to each invoice.</p>
           </div>
           <div className="grid">
-            {PLANS.map((p) => (
-              <article className={'card card--plan span-4 m-nolift' + (p.featured ? ' is-featured' : '')} key={p.id}>
-                <div className="plan__top"><h3>{p.name}</h3>{p.featured && <span className="badge">Most popular</span>}</div>
-                <p>{p.who}</p>
-                <p className="price">
-                  {p.per ? <><span className="t-stat" data-assumed>{p.price}</span><span className="muted">{p.per}</span></> : <span className="t-stat">{p.price}</span>}
-                </p>
-                <p className="t-small muted">{p.billing}</p>
-                <a className={'btn ' + (p.featured ? 'btn--primary' : 'btn--secondary')} href={p.id === 'enterprise' ? 'mailto:sales@bhawarchi.example' : SIGNUP_HREF}>{p.action}</a>
-                <ul className="checks">
-                  {p.lines.map((l) => <li key={l}>{l}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* comparison-table on the dark band, with the dealt line-carries-colour moment */}
-      <section className="section ground-inverse" id="compare" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}' aria-labelledby="compare-h">
-        <div className="wrap">
-          <div className="section-head">
-            <h2 id="compare-h">Compare the three plans</h2>
-            <p>What each plan includes, row by row.</p>
-          </div>
-          <div className="compare" role="table" aria-label="Features in each plan">
-            <div className="compare__row compare__row--head" role="row">
-              <span role="columnheader">Feature</span>
-              {PLANS.map((p) => <span role="columnheader" key={p.id}>{p.name}</span>)}
-            </div>
-            {COMPARE.map((g) => (
-              <div role="rowgroup" key={g.group}>
-                {g.rows.map(([name, ...cells]) => (
-                  <div className="compare__row" role="row" key={name}>
-                    <span role="rowheader">{name}</span>
-                    {cells.map((c, i) => (
-                      <span role="cell" key={i}>
-                        {c ? <><Check /><span className="sr-only">Included</span></> : <span className="compare__no" aria-label="Not included">–</span>}
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            ))}
+            <article className="card card--plan is-featured span-6 start-4 m-nolift">
+              <div className="plan__top"><h3>{plan.name}</h3></div>
+              {plan.description && <p>{plan.description}</p>}
+              <p className="price">
+                <span className="t-stat">{price}</span><span className="muted"> / {plan.billingCycle === 'monthly' ? 'month' : 'year'}</span>
+              </p>
+              <p className="t-small muted">Billed {cycle}, GST extra</p>
+              <a className="btn btn--primary" href={SIGNUP_HREF}>{MAIN_ACTION}</a>
+              <ul className="checks">
+                {plan.features.map((l) => <li key={l}>{l}</li>)}
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -100,32 +65,28 @@ export default function Pricing() {
           <div className="grid">
             <div className="span-5 stack-4">
               <h2 id="questions-h">Questions about pricing</h2>
-              <p>Something not answered here? Write to us and we will help you choose.</p>
-              <a className="link" href="mailto:sales@bhawarchi.example">Email the sales team</a>
-              <div className="faq__bill" role="img" aria-label="A Bawarchi invoice for the Growth plan: the monthly price with GST added">
-                <Invoice />
+              <p>Something not answered here? Write to us and we will help.</p>
+              <a className="link" href="mailto:hello@bawarchi.com">Email us</a>
+              <div className="faq__bill" role="img" aria-label={`A Bawarchi invoice for the ${plan.name}: the ${cycle} price with GST added`}>
+                <Invoice plan={plan.name} price={plan.price} cycle={cycle} />
               </div>
             </div>
             <div className="faq span-6 start-7">
               <div className="faq__item">
-                <h3>Is GST included in the prices?</h3>
-                <p>No. The prices are monthly and GST is added to each invoice.</p>
+                <h3>Is GST included in the price?</h3>
+                <p>No. GST is added to each invoice.</p>
               </div>
               <div className="faq__item">
-                <h3>Which plan suits one small restaurant?</h3>
-                <p>Starter. It covers table QR ordering, the menu, orders, tables, QR codes and online payments.</p>
+                <h3>Are there other plans?</h3>
+                <p>No. Every restaurant gets {plan.name} with every feature, so there is nothing to compare or upgrade later.</p>
               </div>
               <div className="faq__item">
-                <h3>What does Growth add?</h3>
-                <p>Inventory, live order tracking for guests, customer profiles, coupons and favourites, and the analytics dashboard.</p>
-              </div>
-              <div className="faq__item">
-                <h3>How is Enterprise priced?</h3>
-                <p>By the number of outlets you run. Email the sales team and we will send a price for your group.</p>
+                <h3>I run several outlets. What do I pay?</h3>
+                <p>{price} {per} for each outlet. Email us and we will set them up together.</p>
               </div>
               <div className="faq__item">
                 <h3>How do I start?</h3>
-                <p>Fill in the signup form with your restaurant’s details and the plan you want, and we will get you set up.</p>
+                <p>Create your account, add your restaurant's details, and you land on your dashboard ready to add your menu.</p>
               </div>
             </div>
           </div>

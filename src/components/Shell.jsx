@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { BRAND, MAIN_ACTION, SIGNUP_HREF, NAV, FEATURE_GROUPS, FROM_PRICE } from '../data/site.js';
+import { BRAND, MAIN_ACTION, SIGNUP_HREF, NAV, FEATURE_GROUPS } from '../data/site.js';
+import { PlanPrice, PlanName } from './Plan.jsx';
 import { Arrow } from './Arrow.jsx';
 import { Screen } from './Shot.jsx';
 
@@ -52,8 +53,8 @@ export function Nav({ current, actionHref = SIGNUP_HREF }) {
                       </div>
                     </div>
                   </div>
-                  <span className="t-card">Plans from {FROM_PRICE} a month</span>
-                  <span className="t-small muted">Starter, Growth and Enterprise</span>
+                  <span className="t-card"><PlanName />, <PlanPrice /></span>
+                  <span className="t-small muted">One plan with every feature</span>
                 </a>
               </div>
             </div>
@@ -84,7 +85,7 @@ export function Closing({ heading = 'Put your menu on every table', line, action
           <div className="section-head--split">
             <div>
               <h2 id="close-h">{heading}</h2>
-              <p className="t-lead">{line || `Plans from ${FROM_PRICE} a month, and Enterprise priced for your outlets.`}</p>
+              <p className="t-lead">{line || <>One plan with every feature, <PlanPrice />.</>}</p>
             </div>
             <a className="btn btn--primary" href={actionHref}>{MAIN_ACTION}<Arrow /></a>
           </div>

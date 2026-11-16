@@ -1,5 +1,6 @@
 import { Page } from '../components/Shell.jsx';
-import { MAIN_ACTION, SIGNUP_HREF, FROM_PRICE } from '../data/site.js';
+import { MAIN_ACTION, SIGNUP_HREF } from '../data/site.js';
+import { PlanPrice } from '../components/Plan.jsx';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
 
 /*
@@ -18,7 +19,7 @@ export default function Features() {
         <div className="wrap"><div className="hero-text grid hero__grid">
           <div className="span-3">
             <h1 id="hero-h">Restaurant features from table to office</h1>
-            <p className="hero__lead">Nine parts of one system: QR ordering, orders, tables, menus, stock, guests, coupons and sales. <span data-assumed>Plans from {FROM_PRICE} a month.</span></p>
+            <p className="hero__lead">Nine parts of one system: QR ordering, orders, tables, menus, stock, guests, coupons and sales. <span>Every feature in one plan, <PlanPrice />.</span></p>
           </div>
           <div className="ly-collage span-6 start-4">
             <div className="ly-collage__set is-on">
