@@ -4,7 +4,7 @@
 // carries role="img" and an aria-label saying what it shows.
 
 // An invoice for a plan (sample price, GST at 18%).
-export function Invoice({ plan = 'Orbit Plan', price = 7000, cycle = 'yearly' }) {
+export function Invoice({ plan = 'Starter', price = 299, cycle = 'monthly' }) {
   const gst = Math.round(price * 0.18 * 100) / 100;
   const total = Math.round((price + gst) * 100) / 100;
   const fmt = (n) => '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });

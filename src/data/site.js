@@ -11,19 +11,18 @@ export const API_URL = import.meta.env.VITE_API_URL || 'https://bawarchi-api.zen
 // Shown before the live plan loads (and in the prerendered HTML). Keep it in
 // step with the backend's default in subscriptionPlan.model.js.
 export const DEFAULT_PLAN = {
-  name: 'Orbit Plan',
-  price: 7000,
+  name: 'Starter',
+  price: 299,
   currency: 'INR',
-  billingCycle: 'yearly',
-  description: 'All-in-one solution for modern businesses.',
+  billingCycle: 'monthly',
+  description: 'For smaller restaurants',
   features: [
-    'Unlimited Orders & Tables',
-    'Real-time Order Management',
-    'Customer & Menu Analytics',
-    'Inventory & Ingredient Tracking',
-    'Role-based Access for Staff',
-    'Automatic Updates',
-    '24×7 Support',
+    'Guest QR ordering',
+    'Digital menu with photos',
+    'Order management',
+    'Table management',
+    'QR codes for every table',
+    'Online payments',
   ],
 };
 
