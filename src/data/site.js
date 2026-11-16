@@ -4,16 +4,31 @@ export const BRAND = 'Bawarchi';
 
 // The main action: the same words in the nav, every hero, the close and the signup form.
 export const MAIN_ACTION = 'Sign up your restaurant';
-export const SIGNUP_HREF = '/how-it-works.html#signup';
+export const SIGNUP_HREF = 'https://admin-bawarchi.netlify.app/signup';
+
+export const API_URL = import.meta.env.VITE_API_URL || 'https://bawarchi-api.zenvoyager.in/api/v1';
+
+// Shown before the live plan loads (and in the prerendered HTML). Keep it in
+// step with the backend's default in subscriptionPlan.model.js.
+export const DEFAULT_PLAN = {
+  name: 'Orbit Plan',
+  price: 7000,
+  currency: 'INR',
+  billingCycle: 'yearly',
+  description: 'All-in-one solution for modern businesses.',
+  features: [
+    'Unlimited Orders & Tables',
+    'Real-time Order Management',
+    'Customer & Menu Analytics',
+    'Inventory & Ingredient Tracking',
+    'Role-based Access for Staff',
+    'Automatic Updates',
+    '24×7 Support',
+  ],
+};
 
 // Stand-in contact address until the real one exists (the form posts here as a mailto).
 export const CONTACT_MAILTO = 'mailto:hello@bawarchi.com';
-
-// SAMPLE PRICES (assumed, not final). Change them here and every page follows.
-export const PRICES = {
-  starter: '₹299',
-};
-export const FROM_PRICE = PRICES.starter;
 
 export const NAV = [
   { key: 'features', label: 'Features', href: '/features.html' },
@@ -52,59 +67,3 @@ export const FEATURE_GROUPS = [
   },
 ];
 
-// Plans. Feature lists are a first proposal: the split between plans is not final yet.
-export const PLANS = [
-  {
-    id: 'starter',
-    name: 'Starter',
-    who: 'For smaller restaurants',
-    price: PRICES.starter,
-    per: '/ month',
-    billing: 'Billed monthly, GST extra',
-    action: 'Choose Starter',
-    lines: ['Guest QR ordering', 'Digital menu with photos', 'Order management', 'Table management', 'QR codes for every table', 'Online payments'],
-  },
-  {
-    id: 'growth',
-    name: 'Growth',
-    who: 'For growing teams',
-    price: PRICES.growth,
-    per: '/ month',
-    billing: 'Billed monthly, GST extra',
-    action: 'Choose Growth',
-    featured: true,
-    lines: ['Everything in Starter', 'Inventory management', 'Live order tracking for guests', 'Customer profiles', 'Coupons and favourites', 'Analytics dashboard'],
-  },
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
-    who: 'For larger operations',
-    price: 'Price on request',
-    per: '',
-    billing: 'Priced for your outlets',
-    action: 'Contact sales',
-    lines: ['Everything in Growth', 'Several outlets on one account', 'Reports across outlets', 'Staff roles for each outlet', 'Help moving your menu across', 'One contact for your account'],
-  },
-];
-
-export const COMPARE = [
-  { group: 'Ordering', rows: [
-    ['Guest QR ordering', true, true, true],
-    ['Online payments', true, true, true],
-    ['Live order tracking for guests', false, true, true],
-  ] },
-  { group: 'Running the floor', rows: [
-    ['Order management', true, true, true],
-    ['Table management', true, true, true],
-    ['QR code management', true, true, true],
-  ] },
-  { group: 'Back office', rows: [
-    ['Menu management', true, true, true],
-    ['Inventory management', false, true, true],
-    ['Analytics dashboard', false, true, true],
-  ] },
-  { group: 'Guests', rows: [
-    ['Customer profiles', false, true, true],
-    ['Coupons and favourites', false, true, true],
-  ] },
-];

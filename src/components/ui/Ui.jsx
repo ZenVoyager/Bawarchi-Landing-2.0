@@ -4,15 +4,15 @@
 // carries role="img" and an aria-label saying what it shows.
 
 // An invoice for a plan (sample price, GST at 18%).
-export function Invoice({ plan = 'Growth', price = 2799 }) {
+export function Invoice({ plan = 'Orbit Plan', price = 7000, cycle = 'yearly' }) {
   const gst = Math.round(price * 0.18 * 100) / 100;
   const total = Math.round((price + gst) * 100) / 100;
   const fmt = (n) => '₹' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   return (
     <div className="ui ui-bw bw-card bw-invoice" aria-hidden="true">
-      <div className="bw-card__head"><b>Invoice · {plan} plan</b><small>Monthly</small></div>
+      <div className="bw-card__head"><b>Invoice · {plan}</b><small>{cycle === 'monthly' ? 'Monthly' : 'Yearly'}</small></div>
       <div className="bw-pay__rows">
-        <div><span>{plan} plan, one restaurant</span><span className="bw-num">{fmt(price)}</span></div>
+        <div><span>{plan}, one restaurant</span><span className="bw-num">{fmt(price)}</span></div>
         <div><span>GST at 18%</span><span className="bw-num">{fmt(gst)}</span></div>
         <div className="bw-invoice__total"><span>Total</span><span className="bw-num">{fmt(total)}</span></div>
       </div>
