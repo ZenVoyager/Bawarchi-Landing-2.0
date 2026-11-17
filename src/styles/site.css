@@ -9,6 +9,9 @@
 .shot { display: block; width: 100%; overflow: hidden; border-radius: 12px; background: #161311;
   box-shadow: 0 0 0 1px rgb(31 26 21 / .12), 0 24px 60px -28px rgb(31 26 21 / .55); }
 .shot__img { display: block; width: 100%; height: auto; max-width: none; }
+/* Home's hero loop (src/components/HeroVideo.jsx): over the screenshot, shown once it plays */
+.shot__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s ease; }
+.shot__video.is-playing { opacity: 1; }
 
 /* a guest's screen: the screenshot in a phone */
 .bw-phone { width: 270px; padding: 9px; border-radius: 38px; background: #2a241f;

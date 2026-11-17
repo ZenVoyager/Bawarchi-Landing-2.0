@@ -5,6 +5,7 @@ import { PlanPrice, PlanPer } from '../components/Plan.jsx';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
 import { useRef } from 'react';
 import { useHeroScrub } from '../components/useHeroScrub.js';
+import { HeroVideo } from '../components/HeroVideo.jsx';
 
 /*
   type: software (restaurant management and QR ordering SaaS)
@@ -31,8 +32,8 @@ export default function Home() {
               <a className="btn btn--secondary" href="/features.html">See all features</a>
             </div>
           </div>
-          <div className="hero__window" data-fx="grain-gradient" data-fx-seed="7" role="img" aria-label="Bhawarchi's dashboard: today's orders, active orders, growth and revenue, the daily goal, stock running low and six months of revenue">
-            <Screen name="dashboard" className="ly-piece" eager sizes="(max-width: 1023px) 92vw, 960px" />
+          <div className="hero__window" data-fx="grain-gradient" data-fx-seed="7" role="img" aria-label="Bhawarchi's dashboard at work: a guest at Table 04 orders from their phone, the order is accepted, cooked and served, paneer runs low and the bill is paid by UPI">
+            <HeroVideo className="ly-piece" sizes="(max-width: 1023px) 92vw, 960px" />
           </div>
         </div></div>
       </section>
