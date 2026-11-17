@@ -13,6 +13,26 @@
 .shot__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s ease; }
 .shot__video.is-playing { opacity: 1; }
 
+/* Home's "Watch the demo" (src/components/DemoVideo.jsx): the voiced video in a dialog, as large as the
+   screen allows with room above it for the close button; the page behind keeps still while it is open */
+.btn__play { width: 12px; height: 12px; fill: currentColor; flex: none; }
+.demo { width: min(1200px, calc(100vw - 32px), calc((100dvh - 136px) * 16 / 9)); max-width: none; max-height: none;
+  padding: 0; border: 0; border-radius: 16px; background: #131313; color: #f6f6f6; overflow: visible; }
+.demo::backdrop { background: rgb(12 10 9 / .84); backdrop-filter: blur(6px); }
+.demo__frame { aspect-ratio: 16 / 9; border-radius: inherit; overflow: hidden; box-shadow: 0 30px 80px -30px rgb(0 0 0 / .8); }
+.demo__frame video { display: block; width: 100%; height: 100%; background: #131313; }
+.demo__close { position: absolute; top: -56px; right: 0; display: grid; place-items: center; width: 44px; height: 44px;
+  border: 0; border-radius: 999px; background: rgb(255 255 255 / .14); color: #fff; cursor: pointer; transition: background-color .2s ease; }
+.demo__close:hover { background: rgb(255 255 255 / .24); }
+.demo__close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.demo__close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.demo[open] { animation: demo-in .32s cubic-bezier(.2, .8, .2, 1) both; }
+.demo[open]::backdrop { animation: demo-fade .32s ease both; }
+@keyframes demo-in { from { opacity: 0; transform: translateY(14px) scale(.98); } }
+@keyframes demo-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .demo[open], .demo[open]::backdrop { animation: none; } }
+html:has(.demo[open]) { overflow: hidden; }
+
 /* a guest's screen: the screenshot in a phone */
 .bw-phone { width: 270px; padding: 9px; border-radius: 38px; background: #2a241f;
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08), 0 0 0 1px rgb(31 26 21 / .25), 0 30px 60px -30px rgb(31 26 21 / .6); }

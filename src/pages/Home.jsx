@@ -6,6 +6,7 @@ import { Screen, PhoneShot } from '../components/Shot.jsx';
 import { useRef } from 'react';
 import { useHeroScrub } from '../components/useHeroScrub.js';
 import { HeroVideo } from '../components/HeroVideo.jsx';
+import { DemoButton } from '../components/DemoVideo.jsx';
 
 /*
   type: software (restaurant management and QR ordering SaaS)
@@ -29,7 +30,7 @@ export default function Home() {
             <p className="hero__lead">Guests scan the code on their table, order and pay from their phone. Each order reaches your kitchen at once, and tables, stock and sales update on one dashboard.</p>
             <div className="btn-row">
               <a className="btn btn--primary" href={SIGNUP_HREF}>{MAIN_ACTION}</a>
-              <a className="btn btn--secondary" href="/features.html">See all features</a>
+              <DemoButton />
             </div>
           </div>
           <div className="hero__window" data-fx="grain-gradient" data-fx-seed="7" role="img" aria-label="Bhawarchi's dashboard at work: a guest at Table 04 orders from their phone, the order is accepted, cooked and served, paneer runs low and the bill is paid by UPI">
