@@ -71,6 +71,9 @@ html:has(.demo[open]) { overflow: hidden; }
 .bw-pay__rows > div { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--bw-line); }
 .bw-invoice__total { font-weight: 500; font-size: 14px; border-bottom: 0 !important; }
 .faq__bill { margin-top: var(--s-7); max-width: 410px; }
+/* stacked (below 1024): room between the heading column and its invoice and the first question */
+@media (max-width: 1023px) { .faq__intro { margin-bottom: var(--s-7); } }
+@media (max-width: 639px) { .faq__intro { margin-bottom: var(--s-6); } }
 
 /* ---------- Fonts Typography Text ---------- */
 .fw-regular{
@@ -194,13 +197,62 @@ main > #features { height: auto; min-height: 0; }
   .hero--triptych .ly-collage__set > .ly-piece--bare { left: 50% !important; width: min(240px, 70%) !important; transform: translateX(-50%); }
 }
 
-.plan__top { display: flex; align-items: center; gap: var(--s-2); }
+/* ---------- Pricing #plans: the one plan, a wide card in two parts ---------- */
+/* left: what you pay, on the dark ground with the accent glowing from its corners; right: what you get */
+.plan-x {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  border-radius: var(--r-lg); overflow: hidden; background: var(--card);
+  box-shadow: 0 0 0 1px var(--line), 0 40px 80px -48px rgb(31 26 21 / .45);
+}
+.plan-x__buy {
+  display: flex; flex-direction: column; gap: var(--s-4); padding: var(--s-7);
+  background:
+    radial-gradient(110% 80% at 0% 0%, color-mix(in oklab, var(--accent) 42%, transparent), transparent 58%),
+    radial-gradient(80% 60% at 100% 100%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 62%),
+    var(--bg);
+}
+.plan-x__tags { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); }
+.plan-x__name { font: 500 var(--t-h3)/1.1 var(--font-text); letter-spacing: -0.01em; }
+.plan-x__tag {
+  display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px;
+  font: 500 var(--t-label)/1 var(--font-text); color: var(--ink);
+  background: color-mix(in oklab, var(--ink) 10%, transparent); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ink) 18%, transparent);
+}
+.plan-x__desc { color: var(--muted); margin-top: calc(-1 * var(--s-2)); }
+.plan-x__price { display: flex; align-items: baseline; gap: var(--s-2); margin-top: var(--s-5); }
+.plan-x__amount {
+  font-family: var(--font-display); font-weight: var(--display-weight); line-height: 1;
+  font-size: clamp(56px, 2.86vw + 38.8px, 80px); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+}
+.plan-x__per { color: var(--muted); font-size: var(--t-lead); }
+.plan-x__terms { color: var(--muted); font-size: var(--t-small); max-width: 34ch; }
+/* the button sits at the panel's foot whatever the plan's description adds above it */
+.plan-x__buy > .btn { width: 100%; height: 52px; margin-top: auto; }
+.plan-x__terms { margin-bottom: var(--s-3); }
+.plan-x__signin { text-align: center; color: var(--muted); font-size: var(--t-small); }
 
-/* the plans on a phone: the three cards inside two screens */
+.plan-x__list { display: flex; flex-direction: column; gap: var(--s-5); padding: var(--s-7); }
+.plan-x__head { display: grid; gap: var(--s-2); }
+.plan-x__head > h3 { font: 500 var(--t-card)/1.3 var(--font-text); letter-spacing: -0.01em; }
+.plan-x__head > p { color: var(--muted); font-size: var(--t-small); }
+.plan-x__features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--s-7); }
+.plan-x__features > li { padding: var(--s-4) 0; border-top: 1px solid var(--line); align-items: center; }
+.plan-x__features > li::before { margin-top: 0; }
+.plan-x__note {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2) var(--s-5);
+  margin-top: auto; padding: var(--s-4) var(--s-5); border-radius: var(--r-md);
+  background: color-mix(in oklab, var(--ink) 5%, transparent); color: var(--muted); font-size: var(--t-small);
+}
+.plan-x__note .link { color: var(--ink); }
+
+/* a tablet stacks the two parts; a phone keeps one column of features and tighter padding */
+@media (max-width: 1023px) {
+  .plan-x { grid-template-columns: minmax(0, 1fr); }
+}
 @media (max-width: 639px) {
-  #plans .card.card--plan { gap: var(--s-2); }
-  #plans .card--plan > .t-small { display: none; }
-  #plans .checks { gap: var(--s-2); }
+  .plan-x__buy, .plan-x__list { padding: var(--s-5); }
+  .plan-x__features { grid-template-columns: minmax(0, 1fr); }
+  .plan-x__features > li { padding: var(--s-3) 0; }
 }
 
 /* the collage hero (how it works): the order screen, and the guest's phone over its lower left */
@@ -243,4 +295,42 @@ main > #features { height: auto; min-height: 0; }
 @media (max-width: 639px) {
   #steps .steps__phone { display: block; --p-h: 300px; margin-bottom: var(--s-6); border-radius: var(--r-lg); }
   #steps .wrap > .grid, #steps .wrap > .group > .grid { align-self: start !important; flex: none !important; }
+}
+
+/* .hero--text-mid (Pricing's split hero, How it works' collage hero): the words centred on the picture's
+   height on desktop (the kit starts them at its top line); below 1024 the hero stacks and the kit's layout stands */
+@media (min-width: 1024px) {
+  :is(.hero--split, .hero--collage).hero--text-mid .hero__text { align-self: center; }
+  :is(.hero--split, .hero--collage).hero--text-mid .hero__text > h1:first-child { text-box: normal; }
+}
+
+/* Home #why: the statement section as tall as its words (not a whole screen, which left half of it
+   empty), with the same room above and below; the word-highlight reads the words' place on the screen,
+   not the section's height, so it runs as before */
+main > #why { height: auto; min-height: 0; padding-bottom: var(--padt); }
+#why .t-label { margin-bottom: var(--s-4); }
+
+/* ---------- the footer (footer.closing, every page): the close, the name, the links ---------- */
+/* As tall as its content, not a fixed screen (one on a tablet, two on a phone), which opened empty
+   bands between the close and the name. One spacing scale: 96 above, 64 between the three parts,
+   48 / 32 on a phone, and the legal row 32 off the bottom. */
+html footer.closing { height: auto; min-height: 0; padding: var(--s-9) 0 var(--s-6); }
+html footer.closing > .wrap { height: auto; display: flex; flex-direction: column; gap: var(--s-8); }
+footer.closing .closing__cta { gap: var(--s-8); container-type: inline-size; }
+/* the name across the whole column (its text is 3.71em wide; 3.76 leaves a hair either side) */
+footer.closing .closing__cta > .close__word { margin-top: 0; font-size: calc(100cqi / 3.76); line-height: .8; }
+/* desktop: the name fades out toward its foot, solid at the top */
+@media (min-width: 1024px) {
+  footer.closing .close__word {
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 78%);
+            mask-image: linear-gradient(to top, transparent 0%, #000 78%);
+  }
+  /* the faded foot already reads as space, so the links come a step closer */
+  html footer.closing > .wrap { gap: var(--s-7); }
+}
+@media (max-width: 639px) {
+  html footer.closing { padding-top: var(--s-8); }
+  html footer.closing > .wrap, footer.closing .closing__cta { gap: var(--s-7); }
+  footer.closing .closing__links { gap: var(--s-6); }
+  footer.closing .closing__links > .grid { row-gap: var(--s-6); }
 }

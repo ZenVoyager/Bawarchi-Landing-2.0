@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BRAND, MAIN_ACTION, SIGNUP_HREF, NAV, FEATURE_GROUPS } from '../data/site.js';
+import { BRAND, MAIN_ACTION, SIGNUP_HREF, SIGNIN_ACTION, SIGNIN_HREF, NAV, FEATURE_GROUPS } from '../data/site.js';
 import { PlanPrice, PlanName } from './Plan.jsx';
 import { Arrow } from './Arrow.jsx';
 import { Screen } from './Shot.jsx';
@@ -66,6 +66,7 @@ export function Nav({ current, actionHref = SIGNUP_HREF }) {
           ))}
         </nav>
         <div className="nav__actions">
+          <a className="btn btn--secondary" href={SIGNIN_HREF}>{SIGNIN_ACTION}</a>
           <a className="btn btn--primary" href={actionHref}>{MAIN_ACTION}</a>
         </div>
         <button className="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
@@ -79,7 +80,7 @@ export function Nav({ current, actionHref = SIGNUP_HREF }) {
 // footer.closing: row 1 the dealt close (close-word), row 2 the dark footer's directory (footer-dark).
 export function Closing({ heading = 'Put your menu on every table', line, actionHref = SIGNUP_HREF }) {
   return (
-    <footer className="footer closing footer--dark ground-inverse g2m" id="contact" aria-labelledby="close-h">
+    <footer className="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
       <div className="wrap">
         <div className="closing__cta close--word">
           <div className="section-head--split">
@@ -128,7 +129,7 @@ export function Closing({ heading = 'Put your menu on every table', line, action
             </div>
           </div>
           <div className="footer__legal">
-            <span>&copy; 2026 {BRAND}</span>
+            <span>A product by <a href="https://zenvoyager.in"><b>ZenVoyager Pvt. Ltd.</b></a> | &copy; 2026 {BRAND}</span>
             <div className="socials"></div>
           </div>
         </div>

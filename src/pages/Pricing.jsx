@@ -1,5 +1,5 @@
 import { Page } from '../components/Shell.jsx';
-import { MAIN_ACTION, SIGNUP_HREF } from '../data/site.js';
+import { MAIN_ACTION, SIGNUP_HREF, SIGNIN_ACTION, SIGNIN_HREF, CONTACT_MAILTO } from '../data/site.js';
 import { Invoice } from '../components/ui/Ui.jsx';
 import { Screen } from '../components/Shot.jsx';
 import { usePlan, formatPrice, perLabel } from '../components/Plan.jsx';
@@ -19,7 +19,7 @@ export default function Pricing() {
   return (
     <Page current="pricing">
       {/* hero: split */}
-      <section className="hero hero--split" data-enter aria-labelledby="hero-h">
+      <section className="hero hero--split hero--text-mid" data-enter aria-labelledby="hero-h">
         <div className="wrap"><div className="hero-text grid hero__grid">
           <div className="hero__text span-5">
             <h1 id="hero-h">One plan, every feature</h1>
@@ -36,26 +36,38 @@ export default function Pricing() {
       </section>
 
       {/* the plan */}
-      <section className="section" id="plans" style={{ '--hm': 2 }} aria-labelledby="plans-h">
+      <section className="section" id="plans" aria-labelledby="plans-h">
         <div className="wrap">
           <div className="section-head">
-            <h2 id="plans-h">Pricing</h2>
-            <p>One price per restaurant. GST is added to each invoice.</p>
+            <h2 id="plans-h">Simple pricing. <span className="muted">One plan with every feature, priced per outlet.</span></h2>
           </div>
-          <div className="grid">
-            <article className="card card--plan is-featured span-6 start-4 m-nolift">
-              <div className="plan__top"><h3>{plan.name}</h3></div>
-              {plan.description && <p>{plan.description}</p>}
-              <p className="price">
-                <span className="t-stat">{price}</span><span className="muted"> / {plan.billingCycle === 'monthly' ? 'month' : 'year'}</span>
+          {/* the one plan: a wide card, what you pay on a dark panel and what you get beside it */}
+          <article className="plan-x" aria-labelledby="plan-name">
+            <div className="plan-x__buy ground-inverse">
+              <div className="plan-x__tags">
+                <h3 className="plan-x__name" id="plan-name">{plan.name}</h3>
+                <span className="plan-x__tag">Every feature included</span>
+              </div>
+              {plan.description && <p className="plan-x__desc">{plan.description}</p>}
+              <p className="plan-x__price">
+                <span className="plan-x__amount">{price}</span>
+                <span className="plan-x__per">/ {plan.billingCycle === 'monthly' ? 'month' : 'year'}</span>
               </p>
-              <p className="t-small muted">Billed {cycle}, GST extra</p>
+              <p className="plan-x__terms">Billed {cycle} for each outlet. GST is added to each invoice.</p>
               <a className="btn btn--primary" href={SIGNUP_HREF}>{MAIN_ACTION}</a>
-              <ul className="checks">
+              <p className="plan-x__signin">Already use Bawarchi? <a className="link" href={SIGNIN_HREF}>{SIGNIN_ACTION}</a></p>
+            </div>
+            <div className="plan-x__list">
+              <div className="plan-x__head">
+                <h3>Everything in {plan.name}</h3>
+                <p>There is no other plan, so nothing is held back for an upgrade.</p>
+              </div>
+              <ul className="checks plan-x__features">
                 {plan.features.map((l) => <li key={l}>{l}</li>)}
               </ul>
-            </article>
-          </div>
+              {/* <p className="plan-x__note"><span>Running several outlets? We will set them up together.</span> <a className="link" href={CONTACT_MAILTO}>Email us</a></p> */}
+            </div>
+          </article>
         </div>
       </section>
 
@@ -63,7 +75,7 @@ export default function Pricing() {
       <section className="section" id="questions" aria-labelledby="questions-h">
         <div className="wrap">
           <div className="grid">
-            <div className="span-5 stack-4">
+            <div className="faq__intro span-5 stack-4">
               <h2 id="questions-h">Questions about pricing</h2>
               <p>Something not answered here? Write to us and we will help.</p>
               <a className="link" href="mailto:hello@bawarchi.com">Email us</a>

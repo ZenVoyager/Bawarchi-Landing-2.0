@@ -26,7 +26,7 @@ export default function HowItWorks() {
   return (
     <Page current="ordering" actionHref="#signup">
       {/* hero: collage (the product cut by its frame, one result card that loops) */}
-      <section className="hero hero--collage" data-enter aria-labelledby="hero-h">
+      <section className="hero hero--collage hero--text-mid" data-enter aria-labelledby="hero-h">
         <div className="wrap"><div className="hero-text grid hero__grid">
           <div className="hero__text span-5">
             <h1 id="hero-h">How QR ordering works at your tables</h1>

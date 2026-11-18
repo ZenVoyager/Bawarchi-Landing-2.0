@@ -6,6 +6,10 @@ export const BRAND = 'Bawarchi';
 export const MAIN_ACTION = 'Sign up your restaurant';
 export const SIGNUP_HREF = 'https://admin-bawarchi.netlify.app/signup';
 
+// For restaurants that already have an account: the admin app's login page (the nav's second button).
+export const SIGNIN_ACTION = 'Sign in';
+export const SIGNIN_HREF = 'https://admin-bawarchi.netlify.app/login';
+
 export const API_URL = import.meta.env.VITE_API_URL || 'https://bawarchi-api.zenvoyager.in/api/v1';
 
 // Shown before the live plan loads (and in the prerendered HTML). Keep it in
