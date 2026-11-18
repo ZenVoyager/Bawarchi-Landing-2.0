@@ -297,6 +297,54 @@ main > #features { height: auto; min-height: 0; }
   #steps .wrap > .grid, #steps .wrap > .group > .grid { align-self: start !important; flex: none !important; }
 }
 
+/* ---------- How it works #steps: the six steps in one row (src/components/useStepsScroll.js) ---------- */
+.steps__head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-5); margin-bottom: var(--head-gap); }
+.steps__head > h2 { max-width: 20ch; }
+/* the progress bar beside the heading, filled by the script as the row slides */
+.steps__progress { display: none; flex: none; width: 160px; height: 3px; margin-bottom: 14px; border-radius: 99px; overflow: hidden; background: var(--line-strong); }
+.steps__bar { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left center; }
+
+/* the row as built (no script, reduced motion, 640-767): a sideways scroller that snaps to each step,
+   three to a view on desktop, two on a tablet */
+.steps__viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: var(--s-4); }
+.steps__track { display: flex; gap: var(--gutter); }
+.steps__track > .steps__card { flex: 0 0 calc((100% - 2 * var(--gutter)) / 3); scroll-snap-align: start; }
+@media (max-width: 1023px) { .steps__track > .steps__card { flex-basis: calc((100% - var(--gutter)) / 2); } }
+/* the dashed line from each badge to the next runs along the whole row; the last step ends it */
+@media (min-width: 640px) {
+  #steps.steps--row .steps__card:has(> .step-num)::before {
+    content: ""; position: absolute; top: 25px; left: 64px; right: calc(18px - var(--gutter));
+    border-top: 1.5px dashed color-mix(in oklab, var(--accent) 45%, transparent);
+  }
+  #steps.steps--row .steps__card:has(> .step-num):last-child::before { content: none; }
+}
+/* a phone: the steps stack as the timeline above (the words, the menu picture once over them) */
+@media (max-width: 639px) {
+  .steps__head { margin-bottom: var(--s-6); }
+  .steps__viewport { overflow: visible; padding-bottom: 0; }
+  .steps__track { flex-direction: column; gap: var(--s-6); }
+  .steps__track > .steps__card { flex: none; }
+}
+
+/* the script's row: the section held for as long as the row overflows (--hs-run, set by the script),
+   its .wrap stuck to the screen, the steps moving in from the screen's right edge (clipped there) */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  main > #steps.is-hscroll {
+    height: calc(100vh + var(--hs-run, 0px)); height: calc(100svh + var(--hs-run, 0px));
+    min-height: 0; padding: 0; overflow-x: clip;
+  }
+  #steps.is-hscroll > .wrap {
+    position: sticky; top: 0; box-sizing: border-box; height: 100vh; height: 100svh;
+    padding: var(--padt) 0 calc(var(--padb) + var(--bar)); display: flex; flex-direction: column;
+    flex: none;   /* 640-1279 the kit grows the .wrap to fill its section, which leaves sticky no room */
+  }
+  #steps.is-hscroll .steps__viewport { overflow: visible; scroll-snap-type: none; padding-bottom: 0; }
+  #steps.is-hscroll .steps__track { will-change: transform; }
+  #steps.is-hscroll .steps__progress { display: block; }
+  /* the pictures take what the screen leaves under the words, so a short laptop still fits the row */
+  #steps.is-hscroll .panel { --p-h: clamp(180px, 100svh - 520px, 340px); }
+}
+
 /* .hero--text-mid (Pricing's split hero, How it works' collage hero): the words centred on the picture's
    height on desktop (the kit starts them at its top line); below 1024 the hero stacks and the kit's layout stands */
 @media (min-width: 1024px) {

@@ -1,14 +1,15 @@
 import { Page } from '../components/Shell.jsx';
 import { MAIN_ACTION, SIGNUP_HREF } from '../data/site.js';
 import { PlanPrice, PlanName } from '../components/Plan.jsx';
-import { cloneElement } from 'react';
+import { cloneElement, useRef } from 'react';
 import { Screen, PhoneShot } from '../components/Shot.jsx';
+import { useStepsScroll } from '../components/useStepsScroll.js';
 
 /*
   type: software
   deal: hero collage; nav, close, footer, rhythm, buttons and mark as the site
   moment: iris-opens on #signup (the dark band: the form on the inverse ground)
-  sections: hero · steps (six steps, two screens) · signup (booking-form) · close
+  sections: hero · steps (six steps in one row, scrolled sideways) · signup (booking-form) · close
   The form posts to a mailto on .example until a real form address exists (data-endpoint).
 */
 
@@ -23,6 +24,8 @@ const STEPS = [
 ];
 
 export default function HowItWorks() {
+  const stepsRef = useRef(null);
+  useStepsScroll(stepsRef);
   return (
     <Page current="ordering" actionHref="#signup">
       {/* hero: collage (the product cut by its frame, one result card that loops) */}
@@ -47,22 +50,21 @@ export default function HowItWorks() {
         </div></div>
       </section>
 
-      {/* steps: six, in two rows of three (two screens) */}
-      <section className="section g2 steps--six" id="steps" style={{ '--hm': 2 }} aria-labelledby="steps-h">
+      {/* steps: all six in one row; scrolling down slides the row left, revealing them in order
+          (useStepsScroll, GSAP). A phone stacks them as a timeline. */}
+      <section ref={stepsRef} className="section steps--row" id="steps" aria-labelledby="steps-h">
         <div className="wrap">
-          <div className="group">
-            <div className="section-head">
-              <h2 id="steps-h">From table QR to paid bill in 6 steps</h2>
-            </div>
-            <div className="panel steps__phone">
-              <div className="stage stage--fade-b"><div className="at-rise" style={{ '--ax': 'max(16px, 50% - 135px)', '--ay': '24px', '--ay-sm': '24px' }}><PhoneShot alt="The guest's phone: the main menu, where the six steps start" name="ph-menu" /></div></div>
-            </div>
-            <div className="grid">
-              {STEPS.slice(0, 3).map((s, i) => <Step key={s.t} n={i + 1} {...s} />)}
-            </div>
+          <div className="steps__head">
+            <h2 id="steps-h">From table QR to paid bill in 6 steps</h2>
+            <div className="steps__progress" aria-hidden="true"><span className="steps__bar" /></div>
           </div>
-          <div className="grid">
-            {STEPS.slice(3).map((s, i) => <Step key={s.t} n={i + 4} {...s} />)}
+          <div className="panel steps__phone">
+            <div className="stage stage--fade-b"><div className="at-rise" style={{ '--ax': 'max(16px, 50% - 135px)', '--ay': '24px', '--ay-sm': '24px' }}><PhoneShot alt="The guest's phone: the main menu, where the six steps start" name="ph-menu" /></div></div>
+          </div>
+          <div className="steps__viewport">
+            <div className="steps__track">
+              {STEPS.map((s, i) => <Step key={s.t} n={i + 1} {...s} />)}
+            </div>
           </div>
         </div>
       </section>
@@ -111,7 +113,7 @@ export default function HowItWorks() {
 
 function Step({ n, t, p, v, fit = 270, label }) {
   return (
-    <article className="card card--row card--open span-4 m-nolift">
+    <article className="card card--row card--open steps__card m-nolift">
       <span className="step-num">{n}</span>
       <h3>{t}</h3>
       <p>{p}</p>
